@@ -4,4 +4,4 @@ from sms.models import Setting
 
 @admin.register(Setting)
 class SettingsAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('sms_signature', 'active')
