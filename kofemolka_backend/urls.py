@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import path, re_path, include
+from sms.views import send_sms_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('v1/users/send-sms', send_sms_view),
 ]
 
 if 'rosetta' in settings.INSTALLED_APPS:

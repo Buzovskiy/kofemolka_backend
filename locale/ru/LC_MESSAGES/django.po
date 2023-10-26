@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-24 23:35+0200\n"
-"PO-Revision-Date: 2023-10-24 23:40+0000\n"
+"POT-Creation-Date: 2023-10-26 00:49+0200\n"
+"PO-Revision-Date: 2023-10-26 00:50+0300\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -34,3 +34,23 @@ msgstr "Включен"
 #: .\sms\models.py:14 .\sms\models.py:15
 msgid "Settings"
 msgstr "Настройки"
+
+#: .\sms\models.py:19
+msgid "Phone number"
+msgstr "Номер телефона"
+
+#: .\sms\models.py:20 .\sms\models.py:28
+msgid "Sms code"
+msgstr "Смс код"
+
+#: .\sms\models.py:21
+msgid "Created"
+msgstr "Создано"
+
+#: .\sms\models.py:22
+msgid "Verified"
+msgstr "Верифицировано"
+
+#: .\sms\models.py:29
+msgid "Sms codes"
+msgstr "Смс коды"

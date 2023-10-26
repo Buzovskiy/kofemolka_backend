@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-24 23:35+0200\n"
+"POT-Creation-Date: 2023-10-26 00:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: .\sms\models.py:6
 msgid "SMS_SIGNATURE"
 msgstr ""
@@ -31,4 +32,24 @@ msgstr ""
 
 #: .\sms\models.py:14 .\sms\models.py:15
 msgid "Settings"
+msgstr ""
+
+#: .\sms\models.py:19
+msgid "Phone number"
+msgstr ""
+
+#: .\sms\models.py:20 .\sms\models.py:28
+msgid "Sms code"
+msgstr ""
+
+#: .\sms\models.py:21
+msgid "Created"
+msgstr ""
+
+#: .\sms\models.py:22
+msgid "Verified"
+msgstr ""
+
+#: .\sms\models.py:29
+msgid "Sms codes"
 msgstr ""
