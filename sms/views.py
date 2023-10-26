@@ -46,4 +46,4 @@ def check_sms_code(request, api_token):
         sms_code_instance.save()
         return Response(status=status.HTTP_200_OK)
     else:
-        Response(status=status.HTTP_400_BAD_REQUEST)
+        return Response(status=status.HTTP_404_NOT_FOUND)
