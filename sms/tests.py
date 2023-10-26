@@ -1,7 +1,7 @@
 from django.test import TestCase, SimpleTestCase
 from django.core.exceptions import ValidationError
 import decouple
-from .utils import Turbosms
+from .turbosms import Turbosms
 from .models import Setting, validate_phone_is_ukrainian
 from .serializers import SmsCodesSerializer
 

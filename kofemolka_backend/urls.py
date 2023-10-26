@@ -17,11 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import path, re_path, include
-from sms.views import send_sms_view
+from sms.views import send_sms_view, check_sms_code
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('v1/users/send-sms', send_sms_view),
+    path('v1/users/send-sms/api_token=<str:api_token>', send_sms_view),
+    path('v1/users/check-sms-code/api_token=<str:api_token>', check_sms_code),
 ]
 
 if 'rosetta' in settings.INSTALLED_APPS:

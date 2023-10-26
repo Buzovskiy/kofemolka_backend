@@ -41,7 +41,7 @@ class SmsCodes(models.Model):
     verified = models.BooleanField(_('Verified'), default=False)
 
     def __str__(self):
-        return f'{self.phone_number}'
+        return f'{self.phone_number} code: {self.sms_code}'
 
     class Meta:
         verbose_name = _('Sms code')
