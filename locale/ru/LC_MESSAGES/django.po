@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-26 00:49+0200\n"
-"PO-Revision-Date: 2023-10-26 00:50+0300\n"
+"POT-Creation-Date: 2023-11-08 15:39+0100\n"
+"PO-Revision-Date: 2023-11-08 15:41+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,38 +19,64 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.9\n"
 
-#: .\sms\models.py:6
+#: .\app_settings\apps.py:8 .\app_settings\models.py:15
+#: .\app_settings\models.py:16
+msgid "Application settings"
+msgstr "Настройки приложения"
+
+#: .\app_settings\models.py:6
+msgid "Title"
+msgstr "Название"
+
+#: .\app_settings\models.py:7
+msgid "Key"
+msgstr "Ключ (для обращения по API)"
+
+#: .\app_settings\models.py:8
+msgid "Value"
+msgstr "Значение"
+
+#: .\app_settings\models.py:9
+msgid "Description"
+msgstr "Описание"
+
+#: .\sms\models.py:9
 msgid "SMS_SIGNATURE"
 msgstr "Подпись"
 
-#: .\sms\models.py:7
+#: .\sms\models.py:10
 msgid "SMS_TOKEN"
 msgstr "Токен HTTP API авторизации"
 
-#: .\sms\models.py:8
+#: .\sms\models.py:11
 msgid "active"
 msgstr "Включен"
 
-#: .\sms\models.py:14 .\sms\models.py:15
+#: .\sms\models.py:17 .\sms\models.py:18
 msgid "Settings"
 msgstr "Настройки"
 
-#: .\sms\models.py:19
+#: .\sms\models.py:26
+#, python-format
+msgid "%(value)s does not correspond to format 380XXXXXXXXX"
+msgstr ""
+
+#: .\sms\models.py:33
 msgid "Phone number"
 msgstr "Номер телефона"
 
-#: .\sms\models.py:20 .\sms\models.py:28
+#: .\sms\models.py:39 .\sms\models.py:47
 msgid "Sms code"
 msgstr "Смс код"
 
-#: .\sms\models.py:21
+#: .\sms\models.py:40
 msgid "Created"
 msgstr "Создано"
 
-#: .\sms\models.py:22
+#: .\sms\models.py:41
 msgid "Verified"
 msgstr "Верифицировано"
 
-#: .\sms\models.py:29
+#: .\sms\models.py:48
 msgid "Sms codes"
 msgstr "Смс коды"

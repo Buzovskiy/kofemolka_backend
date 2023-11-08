@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-26 00:49+0200\n"
+"POT-Creation-Date: 2023-11-08 15:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,38 +18,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\sms\models.py:6
+#: .\app_settings\apps.py:8 .\app_settings\models.py:15
+#: .\app_settings\models.py:16
+msgid "Application settings"
+msgstr ""
+
+#: .\app_settings\models.py:6
+msgid "Title"
+msgstr ""
+
+#: .\app_settings\models.py:7
+msgid "Key"
+msgstr ""
+
+#: .\app_settings\models.py:8
+msgid "Value"
+msgstr ""
+
+#: .\app_settings\models.py:9
+msgid "Description"
+msgstr ""
+
+#: .\sms\models.py:9
 msgid "SMS_SIGNATURE"
 msgstr ""
 
-#: .\sms\models.py:7
+#: .\sms\models.py:10
 msgid "SMS_TOKEN"
 msgstr ""
 
-#: .\sms\models.py:8
+#: .\sms\models.py:11
 msgid "active"
 msgstr ""
 
-#: .\sms\models.py:14 .\sms\models.py:15
+#: .\sms\models.py:17 .\sms\models.py:18
 msgid "Settings"
 msgstr ""
 
-#: .\sms\models.py:19
+#: .\sms\models.py:26
+#, python-format
+msgid "%(value)s does not correspond to format 380XXXXXXXXX"
+msgstr ""
+
+#: .\sms\models.py:33
 msgid "Phone number"
 msgstr ""
 
-#: .\sms\models.py:20 .\sms\models.py:28
+#: .\sms\models.py:39 .\sms\models.py:47
 msgid "Sms code"
 msgstr ""
 
-#: .\sms\models.py:21
+#: .\sms\models.py:40
 msgid "Created"
 msgstr ""
 
-#: .\sms\models.py:22
+#: .\sms\models.py:41
 msgid "Verified"
 msgstr ""
 
-#: .\sms\models.py:29
+#: .\sms\models.py:48
 msgid "Sms codes"
 msgstr ""
