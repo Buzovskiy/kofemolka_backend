@@ -1,13 +1,14 @@
 from django.test import TestCase, SimpleTestCase
 from django.core.exceptions import ValidationError
+from django.conf import settings
 import decouple
 from .turbosms import Turbosms
 from .models import Setting, validate_phone_is_ukrainian
 from .serializers import SmsCodesSerializer
 
 
-SMS_SIGNATURE = decouple.config('SMS_SIGNATURE')
-SMS_TOKEN = decouple.config('SMS_TOKEN')
+SMS_SIGNATURE = settings.SMS_SIGNATURE
+SMS_TOKEN = settings.SMS_TOKEN
 
 
 class SmsTestCase(TestCase):

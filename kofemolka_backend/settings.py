@@ -24,6 +24,9 @@ SECRET_KEY = decouple.config('SECRET_KEY')
 
 API_TOKEN = decouple.config('API_TOKEN')
 
+SMS_TOKEN = decouple.config('SMS_TOKEN')
+SMS_SIGNATURE = decouple.config('SMS_SIGNATURE')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = decouple.config('DEBUG', default=False, cast=bool)
 
