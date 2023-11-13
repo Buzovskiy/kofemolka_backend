@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-08 15:39+0100\n"
+"POT-Creation-Date: 2023-11-13 22:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Application settings"
 msgstr ""
 
-#: .\app_settings\models.py:6
+#: .\app_settings\models.py:6 .\product\models.py:12
 msgid "Title"
 msgstr ""
 
@@ -35,8 +35,40 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: .\app_settings\models.py:9
+#: .\app_settings\models.py:9 .\product\models.py:29
 msgid "Description"
+msgstr ""
+
+#: .\product\admin.py:10 .\product\models.py:22
+msgid "Type"
+msgstr ""
+
+#: .\product\models.py:6
+msgid "Products"
+msgstr ""
+
+#: .\product\models.py:7
+msgid "Batch tickets"
+msgstr ""
+
+#: .\product\models.py:23
+msgid "Types"
+msgstr ""
+
+#: .\product\models.py:27
+msgid "Product name"
+msgstr ""
+
+#: .\product\models.py:28
+msgid "External product id"
+msgstr ""
+
+#: .\product\models.py:36
+msgid "Product or batch ticket"
+msgstr ""
+
+#: .\product\models.py:37
+msgid "Products or batch tickets"
 msgstr ""
 
 #: .\sms\models.py:9

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-08 15:39+0100\n"
-"PO-Revision-Date: 2023-11-08 15:41+0200\n"
+"POT-Creation-Date: 2023-11-13 22:41+0100\n"
+"PO-Revision-Date: 2023-11-13 22:53+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Application settings"
 msgstr "Настройки приложения"
 
-#: .\app_settings\models.py:6
+#: .\app_settings\models.py:6 .\product\models.py:12
 msgid "Title"
 msgstr "Название"
 
@@ -36,9 +36,45 @@ msgstr "Ключ (для обращения по API)"
 msgid "Value"
 msgstr "Значение"
 
-#: .\app_settings\models.py:9
+#: .\app_settings\models.py:9 .\product\models.py:29
 msgid "Description"
 msgstr "Описание"
+
+#: .\product\admin.py:10 .\product\models.py:22
+msgid "Type"
+msgstr "Тип"
+
+#: .\product\models.py:6
+msgid "Products"
+msgstr "Товары"
+
+#: .\product\models.py:7
+msgid "Batch tickets"
+msgstr "Тех. карты"
+
+#: .\product\models.py:23
+msgid "Types"
+msgstr "Типы"
+
+#: .\product\models.py:27
+#, fuzzy
+#| msgid "Products"
+msgid "Product name"
+msgstr "Товары"
+
+#: .\product\models.py:28
+msgid "External product id"
+msgstr "Внешний id товара"
+
+#: .\product\models.py:36
+#| msgid "Batch tickets"
+msgid "Product or batch ticket"
+msgstr "Товар или тех. карта"
+
+#: .\product\models.py:37
+#| msgid "Batch tickets"
+msgid "Products or batch tickets"
+msgstr "Товары и тех. карты"
 
 #: .\sms\models.py:9
 msgid "SMS_SIGNATURE"
@@ -80,3 +116,6 @@ msgstr "Верифицировано"
 #: .\sms\models.py:48
 msgid "Sms codes"
 msgstr "Смс коды"
+
+#~ msgid "Alias"
+#~ msgstr "Псевдоним"
