@@ -26,6 +26,7 @@ API_TOKEN = decouple.config('API_TOKEN')
 
 SMS_TOKEN = decouple.config('SMS_TOKEN')
 SMS_SIGNATURE = decouple.config('SMS_SIGNATURE')
+POSTER_TOKEN = decouple.config('POSTER_TOKEN')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = decouple.config('DEBUG', default=False, cast=bool)
