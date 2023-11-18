@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-13 22:41+0100\n"
+"POT-Creation-Date: 2023-11-18 12:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,57 +18,69 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\app_settings\apps.py:8 .\app_settings\models.py:15
-#: .\app_settings\models.py:16
+#: .\app_settings\apps.py:8 .\app_settings\models.py:26
+#: .\app_settings\models.py:27
 msgid "Application settings"
 msgstr ""
 
-#: .\app_settings\models.py:6 .\product\models.py:12
+#: .\app_settings\models.py:12
 msgid "Title"
 msgstr ""
 
-#: .\app_settings\models.py:7
+#: .\app_settings\models.py:13
 msgid "Key"
 msgstr ""
 
-#: .\app_settings\models.py:8
+#: .\app_settings\models.py:14
 msgid "Value"
 msgstr ""
 
-#: .\app_settings\models.py:9 .\product\models.py:29
+#: .\app_settings\models.py:15 .\product\models.py:8 .\product\models.py:21
 msgid "Description"
 msgstr ""
 
-#: .\product\admin.py:10 .\product\models.py:22
-msgid "Type"
+#: .\product\apps.py:8
+msgid "Products and batch tickets"
 msgstr ""
 
-#: .\product\models.py:6
+#: .\product\models.py:6 .\product\models.py:19
+msgid "Name"
+msgstr ""
+
+#: .\product\models.py:7 .\product\models.py:20
+msgid "External id"
+msgstr ""
+
+#: .\product\models.py:14
+msgid "Product"
+msgstr ""
+
+#: .\product\models.py:15
 msgid "Products"
 msgstr ""
 
-#: .\product\models.py:7
-msgid "Batch tickets"
-msgstr ""
-
-#: .\product\models.py:23
-msgid "Types"
-msgstr ""
-
 #: .\product\models.py:27
-msgid "Product name"
+msgid "Batch ticket"
 msgstr ""
 
 #: .\product\models.py:28
-msgid "External product id"
+msgid "Batch tickets"
 msgstr ""
 
-#: .\product\models.py:36
-msgid "Product or batch ticket"
+#: .\product\templates\admin\product\batchtickets\change_list.html:8
+msgid "Get batch tickets from CRM"
 msgstr ""
 
-#: .\product\models.py:37
-msgid "Products or batch tickets"
+#: .\product\templates\admin\product\batchtickets\change_list.html:9
+msgid "Get batch tickets"
+msgstr ""
+
+#: .\product\templates\admin\product\products\change_list.html:8
+msgid "Get products from CRM"
+msgstr ""
+
+#: .\product\templates\admin\product\products\change_list.html:9
+msgid "Get products"
 msgstr ""
 
 #: .\sms\models.py:9

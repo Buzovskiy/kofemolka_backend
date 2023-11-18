@@ -19,9 +19,6 @@ class AppSettings(models.Model):
     def __str__(self):
         return self.title
 
-    def get_poster_token(self):
-        return self.objects.filter(key='poster_token').get()
-
     class Meta:
         verbose_name = _('Application settings')
         verbose_name_plural = _('Application settings')

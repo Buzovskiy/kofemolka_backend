@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-13 22:41+0100\n"
-"PO-Revision-Date: 2023-11-13 22:53+0200\n"
+"POT-Creation-Date: 2023-11-18 12:22+0100\n"
+"PO-Revision-Date: 2023-11-18 12:29+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,62 +19,77 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.9\n"
 
-#: .\app_settings\apps.py:8 .\app_settings\models.py:15
-#: .\app_settings\models.py:16
+#: .\app_settings\apps.py:8 .\app_settings\models.py:26
+#: .\app_settings\models.py:27
 msgid "Application settings"
 msgstr "Настройки приложения"
 
-#: .\app_settings\models.py:6 .\product\models.py:12
+#: .\app_settings\models.py:12
 msgid "Title"
 msgstr "Название"
 
-#: .\app_settings\models.py:7
+#: .\app_settings\models.py:13
 msgid "Key"
 msgstr "Ключ (для обращения по API)"
 
-#: .\app_settings\models.py:8
+#: .\app_settings\models.py:14
 msgid "Value"
 msgstr "Значение"
 
-#: .\app_settings\models.py:9 .\product\models.py:29
+#: .\app_settings\models.py:15 .\product\models.py:8 .\product\models.py:21
 msgid "Description"
 msgstr "Описание"
 
-#: .\product\admin.py:10 .\product\models.py:22
-msgid "Type"
-msgstr "Тип"
+#: .\product\apps.py:8
+#| msgid "Products or batch tickets"
+msgid "Products and batch tickets"
+msgstr "Товары и тех. карты"
 
-#: .\product\models.py:6
+#: .\product\models.py:6 .\product\models.py:19
+msgid "Name"
+msgstr "Название"
+
+#: .\product\models.py:7 .\product\models.py:20
+#| msgid "External product id"
+msgid "External id"
+msgstr "Внешний id"
+
+#: .\product\models.py:14
+#| msgid "Products"
+msgid "Product"
+msgstr "Товары"
+
+#: .\product\models.py:15
 msgid "Products"
 msgstr "Товары"
 
-#: .\product\models.py:7
+#: .\product\models.py:27
+#| msgid "Batch tickets"
+msgid "Batch ticket"
+msgstr "Тех. карта"
+
+#: .\product\models.py:28
 msgid "Batch tickets"
 msgstr "Тех. карты"
 
-#: .\product\models.py:23
-msgid "Types"
-msgstr "Типы"
+#: .\product\templates\admin\product\batchtickets\change_list.html:8
+#| msgid "Batch tickets"
+msgid "Get batch tickets from CRM"
+msgstr "Получить тех. карты из CRM"
 
-#: .\product\models.py:27
-#, fuzzy
+#: .\product\templates\admin\product\batchtickets\change_list.html:9
+#| msgid "Batch tickets"
+msgid "Get batch tickets"
+msgstr "Получить тех. карты"
+
+#: .\product\templates\admin\product\products\change_list.html:8
+msgid "Get products from CRM"
+msgstr "Получить товары из CRM"
+
+#: .\product\templates\admin\product\products\change_list.html:9
 #| msgid "Products"
-msgid "Product name"
-msgstr "Товары"
-
-#: .\product\models.py:28
-msgid "External product id"
-msgstr "Внешний id товара"
-
-#: .\product\models.py:36
-#| msgid "Batch tickets"
-msgid "Product or batch ticket"
-msgstr "Товар или тех. карта"
-
-#: .\product\models.py:37
-#| msgid "Batch tickets"
-msgid "Products or batch tickets"
-msgstr "Товары и тех. карты"
+msgid "Get products"
+msgstr "Получить товары"
 
 #: .\sms\models.py:9
 msgid "SMS_SIGNATURE"
@@ -116,6 +131,18 @@ msgstr "Верифицировано"
 #: .\sms\models.py:48
 msgid "Sms codes"
 msgstr "Смс коды"
+
+#~ msgid "Type"
+#~ msgstr "Тип"
+
+#~ msgid "Types"
+#~ msgstr "Типы"
+
+#~ msgid "Product name"
+#~ msgstr "Название товара"
+
+#~ msgid "Product or batch ticket"
+#~ msgstr "Товар или тех. карта"
 
 #~ msgid "Alias"
 #~ msgstr "Псевдоним"
