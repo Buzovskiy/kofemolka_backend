@@ -14,6 +14,7 @@ class AppSettings(models.Model):
     value = models.CharField(_('Value'), max_length=255, blank=False, null=False)
     description = models.TextField(_('Description'), blank=True, null=True)
 
+    objects = models.Manager()
     poster_token = PosterManager()
 
     def __str__(self):
