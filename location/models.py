@@ -4,6 +4,7 @@ from django.db.models.signals import post_delete, pre_save
 from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
 from django.utils.html import mark_safe
+from django.conf import settings
 
 
 class Location(models.Model):
@@ -15,6 +16,14 @@ class Location(models.Model):
     lat = models.CharField(_('Latitude'), null=False, blank=True, max_length=255)
     lng = models.CharField(_('longitude'), null=False, blank=True, max_length=255)
     image = models.ImageField(_('Image'), upload_to="location/", blank=True, null=False)
+
+    @property
+    def get_absolute_image_url(self):
+        try:
+            return "{0}{1}".format(settings.BASE_URL, self.image.url)
+        except ValueError:
+            return ''
+
 
     @property
     def image_preview(self):

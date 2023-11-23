@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, re_path, include
 from sms.views import send_sms_view, check_sms_code
-from app_settings.views import get_settings, get_settings_list
+from app_settings.views import get_settings, get_settings_list, get_company_info
 from product.views import get_products_list, get_product, get_batch_ticket, products_exchange
 
 urlpatterns = [
@@ -30,6 +30,7 @@ urlpatterns = [
 
     path('v1/appsettings/get-settings/api_token=<str:api_token>', get_settings),
     path('v1/appsettings/get-settings-list/api_token=<str:api_token>', get_settings_list),
+    path('v1/appsettings/get-company-info/api_token=<str:api_token>', get_company_info),
 
     path('v1/products/get-products-list/api_token=<str:api_token>', get_products_list),
     path('v1/products/get-product/product_id=<int:product_id>/api_token=<str:api_token>', get_product),

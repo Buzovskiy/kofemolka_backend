@@ -7,6 +7,9 @@ from rest_framework.decorators import api_view
 
 from .serializers import AppSettingsSerializer
 from .models import AppSettings
+from delivery.models import DeliveryType
+from location.models import Location
+from payment.models import PaymentType
 
 
 @api_view(['GET'])
@@ -40,3 +43,44 @@ def get_settings_list(request, api_token):
     serializer = AppSettingsSerializer(app_settings, many=True)
 
     return JsonResponse(serializer.data, status=status.HTTP_200_OK, safe=False)
+
+
+@api_view(['GET'])
+def get_company_info(request, api_token):
+    # v1/appsettings/get-company-info/api_token=qqq
+    # todo: this module needs refactoring according to DRF lib
+    if api_token != settings.API_TOKEN:
+        return Response(status=status.HTTP_401_UNAUTHORIZED)
+
+    data = {
+        'settings': {},
+        'payment_types': [],
+        'delivery_types': [],
+        'locations': [],
+    }
+
+    for item in AppSettings.objects.all():
+        data['settings'][item.key] = item.value
+
+    data['payment_types'] = [{'title': item.title} for item in PaymentType.objects.all()]
+
+    data['delivery_types'] = [{'title': item.title} for item in DeliveryType.objects.all()]
+
+    for location in Location.objects.prefetch_related():
+        location_data = {
+            'spot_id': location.spot_id,
+            'name': location.name,
+            'spot_name': location.spot_name,
+            'spot_address': location.spot_address,
+            'region_id': location.region_id,
+            'lat': location.lat,
+            'lng': location.lng,
+            'image': location.get_absolute_image_url,
+            'location_addresses': []
+        }
+        for location_address in location.locationaddress_set.all():
+            location_data['location_addresses'].append({'address': location_address.address})
+
+        data['locations'].append(location_data)
+
+    return JsonResponse(data, status=status.HTTP_200_OK, safe=False)
