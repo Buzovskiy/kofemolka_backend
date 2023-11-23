@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'sms',
     'app_settings',
     'product',
+    'delivery',
+    'location',
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -137,6 +140,9 @@ ROSETTA_UWSGI_AUTO_RELOAD = True
 STATIC_URL = 'static/'
 
 STATIC_ROOT = BASE_DIR / 'static'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -6,7 +6,7 @@ class Poster:
 
     url = 'https://joinposter.com'
 
-    def get(self, url, params=None, **kwargs):
+    def get(self, url, params={}, **kwargs):
         self.url += url
         token_value = AppSettings.poster_token.get().value
         params.update({'token': token_value})

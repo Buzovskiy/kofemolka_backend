@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path, re_path, include
 from sms.views import send_sms_view, check_sms_code
 from app_settings.views import get_settings, get_settings_list
@@ -40,3 +41,6 @@ if 'rosetta' in settings.INSTALLED_APPS:
     urlpatterns += [
         re_path(r'^rosetta/', include('rosetta.urls'))
     ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
