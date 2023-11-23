@@ -1,4 +1,7 @@
+import os
 from django.db import models
+from django.db.models.signals import post_delete, pre_save
+from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
 from django.utils.html import mark_safe
 
@@ -25,6 +28,31 @@ class Location(models.Model):
     class Meta:
         verbose_name = _('Location')
         verbose_name_plural = _('Locations')
+
+
+@receiver(post_delete, sender=Location)
+def post_delete_image(sender, instance, *args, **kwargs):
+    """When we delete Location instance, delete old image file """
+    try:
+        instance.image.delete(save=False)
+    except:
+        pass
+
+
+@receiver(pre_save, sender=Location)
+def pre_save_image(sender, instance, *args, **kwargs):
+    """When update Location, delete old image file.Instance old image file will delete from os """
+    try:
+        old_img = instance.__class__.objects.get(pk=instance.pk).image.path
+        try:
+            new_img = instance.image.path
+        except:
+            new_img = None
+        if new_img != old_img:
+            if os.path.exists(old_img):
+                os.remove(old_img)
+    except:
+        pass
 
 
 class LocationAddress(models.Model):
