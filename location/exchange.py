@@ -17,8 +17,8 @@ def import_locations():
             'spot_name': '' if obj['spot_name'] is None else obj['spot_name'],
             'spot_address': '' if obj['spot_adress'] is None else obj['spot_adress'],
             'region_id': '' if obj['region_id'] is None else obj['region_id'],
-            'lat': '' if obj['lat'] is None else obj['lat'],
-            'lng': '' if obj['lng'] is None else obj['lng'],
+            # 'lat': '' if obj['lat'] is None else obj['lat'],
+            # 'lng': '' if obj['lng'] is None else obj['lng'],
         }
         obj, created = Location.objects.update_or_create(spot_id=obj['spot_id'], defaults=object_defaults)
         if created:
