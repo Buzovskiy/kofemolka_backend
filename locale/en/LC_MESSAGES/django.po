@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-23 01:41+0100\n"
+"POT-Creation-Date: 2023-12-07 10:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,51 +47,59 @@ msgstr ""
 msgid "Delivery type"
 msgstr ""
 
-#: .\location\admin.py:42 .\location\models.py:14
+#: .\location\admin.py:42 .\location\models.py:18
 msgid "Image"
 msgstr ""
 
-#: .\location\apps.py:8 .\location\models.py:26
+#: .\location\apps.py:8 .\location\models.py:40
 msgid "Location"
 msgstr ""
 
-#: .\location\apps.py:9 .\location\models.py:27
+#: .\location\apps.py:9 .\location\models.py:41
 msgid "Locations"
 msgstr ""
 
-#: .\location\models.py:7
+#: .\location\models.py:11
 msgid "Location id"
 msgstr ""
 
-#: .\location\models.py:8 .\product\models.py:6 .\product\models.py:19
+#: .\location\models.py:12 .\product\models.py:6 .\product\models.py:19
 msgid "Name"
 msgstr ""
 
-#: .\location\models.py:9
+#: .\location\models.py:13
 msgid "Location name"
 msgstr ""
 
-#: .\location\models.py:10
+#: .\location\models.py:14
 msgid "Location address"
 msgstr ""
 
-#: .\location\models.py:11
+#: .\location\models.py:15
 msgid "Region id"
 msgstr ""
 
-#: .\location\models.py:12
+#: .\location\models.py:16
 msgid "Latitude"
 msgstr ""
 
-#: .\location\models.py:13
+#: .\location\models.py:17
 msgid "longitude"
 msgstr ""
 
-#: .\location\models.py:31 .\location\models.py:38
+#: .\location\models.py:19
+msgid "Wayforpay key"
+msgstr ""
+
+#: .\location\models.py:20
+msgid "Wayforpay account"
+msgstr ""
+
+#: .\location\models.py:70 .\location\models.py:77
 msgid "Address"
 msgstr ""
 
-#: .\location\models.py:39
+#: .\location\models.py:78
 msgid "Addresses"
 msgstr ""
 

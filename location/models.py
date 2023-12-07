@@ -16,6 +16,8 @@ class Location(models.Model):
     lat = models.CharField(_('Latitude'), null=False, blank=True, max_length=255)
     lng = models.CharField(_('longitude'), null=False, blank=True, max_length=255)
     image = models.ImageField(_('Image'), upload_to="location/", blank=True, null=False)
+    wayforpay_key = models.CharField(_('Wayforpay key'), null=True, blank=True, max_length=255)
+    wayforpay_account = models.CharField(_('Wayforpay account'), null=True, blank=True, max_length=255)
 
     @property
     def get_absolute_image_url(self):

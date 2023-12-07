@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-23 01:41+0100\n"
-"PO-Revision-Date: 2023-11-23 01:42+0200\n"
+"POT-Creation-Date: 2023-12-07 10:52+0100\n"
+"PO-Revision-Date: 2023-12-07 10:54+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -48,51 +48,59 @@ msgstr "Способы доставки"
 msgid "Delivery type"
 msgstr "Способ доставки"
 
-#: .\location\admin.py:42 .\location\models.py:14
+#: .\location\admin.py:42 .\location\models.py:18
 msgid "Image"
 msgstr "Изображение"
 
-#: .\location\apps.py:8 .\location\models.py:26
+#: .\location\apps.py:8 .\location\models.py:40
 msgid "Location"
 msgstr "Заведение"
 
-#: .\location\apps.py:9 .\location\models.py:27
+#: .\location\apps.py:9 .\location\models.py:41
 msgid "Locations"
 msgstr "Заведения"
 
-#: .\location\models.py:7
+#: .\location\models.py:11
 msgid "Location id"
 msgstr "Id заведения"
 
-#: .\location\models.py:8 .\product\models.py:6 .\product\models.py:19
+#: .\location\models.py:12 .\product\models.py:6 .\product\models.py:19
 msgid "Name"
 msgstr "Название"
 
-#: .\location\models.py:9
+#: .\location\models.py:13
 msgid "Location name"
 msgstr "Название заведения"
 
-#: .\location\models.py:10
+#: .\location\models.py:14
 msgid "Location address"
 msgstr "Адрес заведения"
 
-#: .\location\models.py:11
+#: .\location\models.py:15
 msgid "Region id"
 msgstr "Region id"
 
-#: .\location\models.py:12
+#: .\location\models.py:16
 msgid "Latitude"
 msgstr "Широта"
 
-#: .\location\models.py:13
+#: .\location\models.py:17
 msgid "longitude"
 msgstr "Долгота"
 
-#: .\location\models.py:31 .\location\models.py:38
+#: .\location\models.py:19
+msgid "Wayforpay key"
+msgstr "Wayforpay key"
+
+#: .\location\models.py:20
+msgid "Wayforpay account"
+msgstr "Wayforpay account"
+
+#: .\location\models.py:70 .\location\models.py:77
 msgid "Address"
 msgstr "Адрес"
 
-#: .\location\models.py:39
+#: .\location\models.py:78
 msgid "Addresses"
 msgstr "Адреса"
 
