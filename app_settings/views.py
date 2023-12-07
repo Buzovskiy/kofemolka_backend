@@ -76,6 +76,8 @@ def get_company_info(request, api_token):
             'lat': location.lat,
             'lng': location.lng,
             'image': location.get_absolute_image_url,
+            'wayforpay_key': location.wayforpay_key,
+            'wayforpay_account': location.wayforpay_account,
             'location_addresses': []
         }
         for location_address in location.locationaddress_set.all():
