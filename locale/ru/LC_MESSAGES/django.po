@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-07 10:52+0100\n"
-"PO-Revision-Date: 2023-12-07 10:54+0200\n"
+"POT-Creation-Date: 2023-12-25 23:14+0100\n"
+"PO-Revision-Date: 2023-12-25 23:15+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -39,6 +39,58 @@ msgstr "Значение"
 #: .\app_settings\models.py:15 .\product\models.py:8 .\product\models.py:21
 msgid "Description"
 msgstr "Описание"
+
+#: .\clients\apps.py:8 .\clients\models.py:15
+msgid "Clients"
+msgstr "Клиенты"
+
+#: .\clients\models.py:6
+msgid "Client id"
+msgstr "Id клиента"
+
+#: .\clients\models.py:7
+msgid "First name"
+msgstr "Имя"
+
+#: .\clients\models.py:8
+msgid "Last name"
+msgstr "Фамилия"
+
+#: .\clients\models.py:14 .\clients\models.py:21
+msgid "Client"
+msgstr "Клиент"
+
+#: .\clients\models.py:19 .\clients\models.py:29
+msgid "Comment"
+msgstr "Комментарий"
+
+#: .\clients\models.py:20
+msgid "Rating"
+msgstr "Оценка"
+
+#: .\clients\models.py:22
+msgid "Approved"
+msgstr "Подтвержден"
+
+#: .\clients\models.py:23
+msgid "Response"
+msgstr "Ответ"
+
+#: .\clients\models.py:30
+msgid "Comments"
+msgstr "Комментарии"
+
+#: .\clients\models.py:34 .\clients\models.py:40 .\clients\models.py:41
+msgid "Complaints and suggestions"
+msgstr "Жалобы и предложения"
+
+#: .\clients\templates\admin\clients\clients\change_list.html:8
+msgid "Get clients from CRM"
+msgstr "Получить клиентов из CRM"
+
+#: .\clients\templates\admin\clients\clients\change_list.html:9
+msgid "Get clients"
+msgstr "Получить клиентов"
 
 #: .\delivery\apps.py:8 .\delivery\models.py:13
 msgid "Delivery types"

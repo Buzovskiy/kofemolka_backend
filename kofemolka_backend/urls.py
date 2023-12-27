@@ -21,6 +21,7 @@ from django.urls import path, re_path, include
 from sms.views import send_sms_view, check_sms_code
 from app_settings.views import get_settings, get_settings_list, get_company_info
 from product.views import get_products_list, get_product, get_batch_ticket, products_exchange
+from clients.views import CommentList, ClientDetail, Complaints
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,6 +37,10 @@ urlpatterns = [
     path('v1/products/get-product/product_id=<int:product_id>/api_token=<str:api_token>', get_product),
     path('v1/products/get-batchticket/product_id=<int:product_id>/api_token=<str:api_token>', get_batch_ticket),
     path('v1/products/products-exchange/api_token=<str:api_token>', products_exchange),
+    path('v1/clients/Comments.GetList/api_token=<str:api_token>', CommentList.as_view()),
+    path('v1/clients/Comments.Add/api_token=<str:api_token>', CommentList.as_view()),
+    path('v1/clients/Clients.Details/api_token=<str:api_token>', ClientDetail.as_view()),
+    path('v1/clients/Complaints.Add/api_token=<str:api_token>', Complaints.as_view())
 ]
 
 if 'rosetta' in settings.INSTALLED_APPS:
