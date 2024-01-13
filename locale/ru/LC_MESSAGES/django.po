@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-25 23:14+0100\n"
-"PO-Revision-Date: 2023-12-25 23:15+0200\n"
+"POT-Creation-Date: 2024-01-14 00:31+0100\n"
+"PO-Revision-Date: 2024-01-14 00:32+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,70 +19,70 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.9\n"
 
-#: .\app_settings\apps.py:8 .\app_settings\models.py:24
-#: .\app_settings\models.py:25
+#: .\app_settings\apps.py:8 .\app_settings\models.py:36
+#: .\app_settings\models.py:37
 msgid "Application settings"
 msgstr "Настройки приложения"
 
-#: .\app_settings\models.py:12 .\delivery\models.py:6 .\payment\models.py:6
+#: .\app_settings\models.py:16 .\delivery\models.py:6 .\payment\models.py:6
 msgid "Title"
 msgstr "Название"
 
-#: .\app_settings\models.py:13
+#: .\app_settings\models.py:17
 msgid "Key"
 msgstr "Ключ (для обращения по API)"
 
-#: .\app_settings\models.py:14
+#: .\app_settings\models.py:18
 msgid "Value"
 msgstr "Значение"
 
-#: .\app_settings\models.py:15 .\product\models.py:8 .\product\models.py:21
+#: .\app_settings\models.py:19 .\product\models.py:8 .\product\models.py:21
 msgid "Description"
 msgstr "Описание"
 
-#: .\clients\apps.py:8 .\clients\models.py:15
+#: .\clients\apps.py:8 .\clients\models.py:19
 msgid "Clients"
 msgstr "Клиенты"
 
-#: .\clients\models.py:6
+#: .\clients\models.py:10
 msgid "Client id"
 msgstr "Id клиента"
 
-#: .\clients\models.py:7
+#: .\clients\models.py:11
 msgid "First name"
 msgstr "Имя"
 
-#: .\clients\models.py:8
+#: .\clients\models.py:12
 msgid "Last name"
 msgstr "Фамилия"
 
-#: .\clients\models.py:14 .\clients\models.py:21
+#: .\clients\models.py:18 .\clients\models.py:25
 msgid "Client"
 msgstr "Клиент"
 
-#: .\clients\models.py:19 .\clients\models.py:29
-msgid "Comment"
-msgstr "Комментарий"
+#: .\clients\models.py:23 .\clients\models.py:33 .\clients\models.py:34
+msgid "Feedbacks and complaints"
+msgstr "Отзывы и жалобы"
 
-#: .\clients\models.py:20
+#: .\clients\models.py:24
 msgid "Rating"
 msgstr "Оценка"
 
-#: .\clients\models.py:22
+#: .\clients\models.py:26
 msgid "Approved"
 msgstr "Подтвержден"
 
-#: .\clients\models.py:23
+#: .\clients\models.py:27
 msgid "Response"
 msgstr "Ответ"
 
-#: .\clients\models.py:30
-msgid "Comments"
-msgstr "Комментарии"
+#: .\clients\models.py:38 .\clients\models.py:44
+msgid "Proposal"
+msgstr "Предложение"
 
-#: .\clients\models.py:34 .\clients\models.py:40 .\clients\models.py:41
-msgid "Complaints and suggestions"
-msgstr "Жалобы и предложения"
+#: .\clients\models.py:45
+msgid "Proposals"
+msgstr "Предложения"
 
 #: .\clients\templates\admin\clients\clients\change_list.html:8
 msgid "Get clients from CRM"
@@ -252,6 +252,15 @@ msgstr "Верифицировано"
 #: .\sms\models.py:48
 msgid "Sms codes"
 msgstr "Смс коды"
+
+#~ msgid "Complaints and suggestions"
+#~ msgstr "Жалобы и предложения"
+
+#~ msgid "Comment"
+#~ msgstr "Комментарий"
+
+#~ msgid "Comments"
+#~ msgstr "Комментарии"
 
 #~ msgid "Type"
 #~ msgstr "Тип"

@@ -20,7 +20,7 @@ class Clients(models.Model):
 
 
 class Comment(models.Model):
-    comment = models.TextField(_('Comment'), null=False, blank=False)
+    comment = models.TextField(_('Feedbacks and complaints'), null=False, blank=False)
     rating = models.IntegerField(_('Rating'), null=True, blank=True)
     client = models.ForeignKey(Clients, verbose_name=_('Client'), on_delete=models.CASCADE)
     approved = models.BooleanField(_('Approved'), default=False)
@@ -30,27 +30,27 @@ class Comment(models.Model):
         return self.comment[:50]+'...' if len(self.comment) > 50 else self.comment
 
     class Meta:
-        verbose_name = _('Comment')
-        verbose_name_plural = _('Comments')
+        verbose_name = _('Feedbacks and complaints')
+        verbose_name_plural = _('Feedbacks and complaints')
 
 
-class Complaints(models.Model):
-    complaint = models.TextField(_('Complaints and suggestions'), null=False, blank=False)
+class Proposal(models.Model):
+    proposal = models.TextField(_('Proposal'), null=False, blank=False)
 
     def __str__(self):
-        return self.complaint[:50]+'...' if len(self.complaint) > 50 else self.complaint
+        return self.proposal[:50]+'...' if len(self.proposal) > 50 else self.proposal
 
     class Meta:
-        verbose_name = _('Complaints and suggestions')
-        verbose_name_plural = _('Complaints and suggestions')
+        verbose_name = _('Proposal')
+        verbose_name_plural = _('Proposals')
 
 
-@receiver(post_save, sender=Complaints)
+@receiver(post_save, sender=Proposal)
 def post_save_send_sms(sender, instance, *args, **kwargs):
-    """When we save Complaints instance send sms"""
+    """When we save Proposal instance send sms"""
     try:
-        complaints_settings = AppSettings.complaints.get()
-        telephone_numbers_list = complaints_settings.get_telephones_list()
+        proposals_settings = AppSettings.proposals.get()
+        telephone_numbers_list = proposals_settings.get_telephones_list()
         if len(telephone_numbers_list) > 0:
             send_sms(message=instance.__str__(), recipients=telephone_numbers_list)
     except (AppSettings.DoesNotExist, AttributeError):

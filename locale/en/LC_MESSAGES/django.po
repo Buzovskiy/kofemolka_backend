@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-25 23:14+0100\n"
+"POT-Creation-Date: 2024-01-14 00:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,69 +18,69 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\app_settings\apps.py:8 .\app_settings\models.py:24
-#: .\app_settings\models.py:25
+#: .\app_settings\apps.py:8 .\app_settings\models.py:36
+#: .\app_settings\models.py:37
 msgid "Application settings"
 msgstr ""
 
-#: .\app_settings\models.py:12 .\delivery\models.py:6 .\payment\models.py:6
+#: .\app_settings\models.py:16 .\delivery\models.py:6 .\payment\models.py:6
 msgid "Title"
 msgstr ""
 
-#: .\app_settings\models.py:13
+#: .\app_settings\models.py:17
 msgid "Key"
 msgstr ""
 
-#: .\app_settings\models.py:14
+#: .\app_settings\models.py:18
 msgid "Value"
 msgstr ""
 
-#: .\app_settings\models.py:15 .\product\models.py:8 .\product\models.py:21
+#: .\app_settings\models.py:19 .\product\models.py:8 .\product\models.py:21
 msgid "Description"
 msgstr ""
 
-#: .\clients\apps.py:8 .\clients\models.py:15
+#: .\clients\apps.py:8 .\clients\models.py:19
 msgid "Clients"
 msgstr ""
 
-#: .\clients\models.py:6
+#: .\clients\models.py:10
 msgid "Client id"
 msgstr ""
 
-#: .\clients\models.py:7
+#: .\clients\models.py:11
 msgid "First name"
 msgstr ""
 
-#: .\clients\models.py:8
+#: .\clients\models.py:12
 msgid "Last name"
 msgstr ""
 
-#: .\clients\models.py:14 .\clients\models.py:21
+#: .\clients\models.py:18 .\clients\models.py:25
 msgid "Client"
 msgstr ""
 
-#: .\clients\models.py:19 .\clients\models.py:29
-msgid "Comment"
+#: .\clients\models.py:23 .\clients\models.py:33 .\clients\models.py:34
+msgid "Feedbacks and complaints"
 msgstr ""
 
-#: .\clients\models.py:20
+#: .\clients\models.py:24
 msgid "Rating"
 msgstr ""
 
-#: .\clients\models.py:22
+#: .\clients\models.py:26
 msgid "Approved"
 msgstr ""
 
-#: .\clients\models.py:23
+#: .\clients\models.py:27
 msgid "Response"
 msgstr ""
 
-#: .\clients\models.py:30
-msgid "Comments"
+#: .\clients\models.py:38 .\clients\models.py:44
+msgid "Proposal"
 msgstr ""
 
-#: .\clients\models.py:34 .\clients\models.py:40 .\clients\models.py:41
-msgid "Complaints and suggestions"
+#: .\clients\models.py:45
+msgid "Proposals"
 msgstr ""
 
 #: .\clients\templates\admin\clients\clients\change_list.html:8

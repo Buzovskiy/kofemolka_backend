@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Comment, Clients, Complaints
+from .models import Comment, Clients, Proposal
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -16,7 +16,7 @@ class ClientsSerializer(serializers.ModelSerializer):
         fields = ['id', 'client_id', 'firstname', 'lastname', 'comment_set']
 
 
-class ComplaintSerializer(serializers.ModelSerializer):
+class ProposalSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Complaints
-        fields = ['id', 'complaint']
+        model = Proposal
+        fields = ['id', 'proposal']

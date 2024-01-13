@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import CommentSerializer, ClientsSerializer, ComplaintSerializer
+from .serializers import CommentSerializer, ClientsSerializer, ProposalSerializer
 from .models import Comment, Clients
 from django.conf import settings
 
@@ -67,15 +67,15 @@ class ClientDetail(APIView):
         return Response(serializer.data)
 
 
-class Complaints(APIView):
+class Proposals(APIView):
     """
-    Create a new complaint.
+    Create a new Proposal.
     """
     def post(self, request, api_token):
         if api_token != settings.API_TOKEN:
             return Response(status=status.HTTP_401_UNAUTHORIZED)
 
-        serializer = ComplaintSerializer(data=request.data)
+        serializer = ProposalSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

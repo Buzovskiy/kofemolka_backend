@@ -2,7 +2,7 @@ from django.contrib import admin, messages
 from django.http import HttpResponseRedirect
 from django.urls import path
 from django.utils.translation import gettext_lazy as _
-from .models import Clients, Comment, Complaints
+from .models import Clients, Comment, Proposal
 from .exchange import import_clients
 
 
@@ -43,6 +43,6 @@ class CommentAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'comment')
 
 
-@admin.register(Complaints)
-class ComplaintsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'complaint')
+@admin.register(Proposal)
+class ProposalAdmin(admin.ModelAdmin):
+    list_display = ('id', 'proposal')

@@ -7,9 +7,9 @@ class PosterManager(models.Manager):
         return super().get_queryset().filter(key='poster_token')
 
 
-class ComplaintsManager(models.Manager):
+class ProposalsManager(models.Manager):
     def get_queryset(self):
-        return super().get_queryset().filter(key='complaints_telephones_list')
+        return super().get_queryset().filter(key='proposals_telephones_list')
 
 
 class AppSettings(models.Model):
@@ -20,14 +20,14 @@ class AppSettings(models.Model):
 
     objects = models.Manager()
     poster_token = PosterManager()
-    complaints = ComplaintsManager()
+    proposals = ProposalsManager()
 
     def __str__(self):
         return self.title
 
     def get_telephones_list(self):
         """
-        Example: AppSettings.complaints.get().get_telephones_list()
+        Example: AppSettings.proposals.get().get_telephones_list()
         :return: list of telephone numbers ['+380986260999', '+34655973999']
         """
         return [s.strip() for s in self.value.split(',')]
