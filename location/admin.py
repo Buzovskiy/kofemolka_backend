@@ -25,7 +25,7 @@ class LocationAddressInline(admin.TabularInline):
 
 @admin.register(Location)
 class LocationAdmin(admin.ModelAdmin):
-    list_display = ('spot_id', 'spot_name')
+    list_display = ('id', 'spot_id', 'spot_name')
     list_display_links = ('spot_name',)
     inlines = [LocationAddressInline]
     f_list = [field.name for field in Location._meta.get_fields() if field.name != "id"]

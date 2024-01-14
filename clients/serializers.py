@@ -6,7 +6,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ['id', 'comment', 'rating', 'client', 'approved', 'response']
+        fields = ['id', 'comment', 'rating', 'client', 'location', 'approved', 'response']
 
 
 class ClientsSerializer(serializers.ModelSerializer):
@@ -20,7 +20,7 @@ class ClientsSerializer(serializers.ModelSerializer):
 class CommentSerializerDepth1(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ['id', 'comment', 'rating', 'client', 'approved', 'response']
+        fields = ['id', 'comment', 'rating', 'approved', 'response', 'client', 'location']
         depth = 1
 
 

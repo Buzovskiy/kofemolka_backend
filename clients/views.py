@@ -9,14 +9,17 @@ from django.conf import settings
 
 class CommentList(APIView):
     """
-    List all comments, or create a new snippet.
+    List all approved comments, or create a new one.
     """
     def get(self, request, api_token):
         if api_token != settings.API_TOKEN:
             return Response(status=status.HTTP_401_UNAUTHORIZED)
 
-        comments_qs = Comment.objects.all().select_related('client')
         params = request.query_params.dict()
+        comments_qs = Comment.objects.all().select_related('client')
+        if 'approved' in params:
+            comments_qs = comments_qs.filter(approved=params['approved'])
+
         client_qs = Clients.objects.all()
 
         if 'client_id' in params:

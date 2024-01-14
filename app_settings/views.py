@@ -68,6 +68,7 @@ def get_company_info(request, api_token):
 
     for location in Location.objects.prefetch_related():
         location_data = {
+            'id': location.id,
             'spot_id': location.spot_id,
             'name': location.name,
             'spot_name': location.spot_name,

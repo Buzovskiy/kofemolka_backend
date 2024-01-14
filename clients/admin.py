@@ -39,7 +39,7 @@ class ClientsAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'comment', 'rating', 'response', 'approved', 'client')
+    list_display = ('id', 'comment', 'rating', 'response', 'approved', 'client', 'location')
     list_display_links = ('id', 'comment')
 
 

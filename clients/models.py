@@ -23,6 +23,7 @@ class Comment(models.Model):
     comment = models.TextField(_('Feedbacks and complaints'), null=False, blank=False)
     rating = models.IntegerField(_('Rating'), null=True, blank=True)
     client = models.ForeignKey(Clients, verbose_name=_('Client'), on_delete=models.CASCADE)
+    location = models.ForeignKey('location.Location', on_delete=models.CASCADE, null=False)
     approved = models.BooleanField(_('Approved'), default=False)
     response = models.TextField(_('Response'), null=True, blank=True)
 
