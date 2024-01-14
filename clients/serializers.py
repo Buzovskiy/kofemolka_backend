@@ -3,6 +3,7 @@ from .models import Comment, Clients, Proposal
 
 
 class CommentSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Comment
         fields = ['id', 'comment', 'rating', 'client', 'approved', 'response']
@@ -14,6 +15,13 @@ class ClientsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Clients
         fields = ['id', 'client_id', 'firstname', 'lastname', 'comment_set']
+
+
+class CommentSerializerDepth1(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = ['id', 'comment', 'rating', 'client', 'approved', 'response']
+        depth = 1
 
 
 class ProposalSerializer(serializers.ModelSerializer):

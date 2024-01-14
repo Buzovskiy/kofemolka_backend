@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import CommentSerializer, ClientsSerializer, ProposalSerializer
+from .serializers import CommentSerializer, ClientsSerializer, ProposalSerializer, CommentSerializerDepth1
 from .models import Comment, Clients
 from django.conf import settings
 
@@ -15,7 +15,7 @@ class CommentList(APIView):
         if api_token != settings.API_TOKEN:
             return Response(status=status.HTTP_401_UNAUTHORIZED)
 
-        comments_qs = Comment.objects.all()
+        comments_qs = Comment.objects.all().select_related('client')
         params = request.query_params.dict()
         client_qs = Clients.objects.all()
 
@@ -27,7 +27,7 @@ class CommentList(APIView):
             except Clients.DoesNotExist:
                 return Response(status=status.HTTP_400_BAD_REQUEST)
 
-        serializer = CommentSerializer(comments_qs, many=True)
+        serializer = CommentSerializerDepth1(comments_qs, many=True)
         return Response(serializer.data)
 
     def post(self, request, api_token):
