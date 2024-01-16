@@ -15,23 +15,8 @@ class Location(models.Model):
     region_id = models.CharField(_('Region id'), null=False, blank=True, max_length=255)
     lat = models.CharField(_('Latitude'), null=False, blank=True, max_length=255)
     lng = models.CharField(_('longitude'), null=False, blank=True, max_length=255)
-    image = models.ImageField(_('Image'), upload_to="location/", blank=True, null=False)
     wayforpay_key = models.CharField(_('Wayforpay key'), null=True, blank=True, max_length=255)
     wayforpay_account = models.CharField(_('Wayforpay account'), null=True, blank=True, max_length=255)
-
-    @property
-    def get_absolute_image_url(self):
-        try:
-            return "{0}{1}".format(settings.BASE_URL, self.image.url)
-        except ValueError:
-            return ''
-
-
-    @property
-    def image_preview(self):
-        if self.image:
-            return mark_safe('<img src="{url}" width="200px" />'.format(url=self.image.url))
-        return ""
 
     def __str__(self):
         return self.spot_name
@@ -41,7 +26,42 @@ class Location(models.Model):
         verbose_name_plural = _('Locations')
 
 
-@receiver(post_delete, sender=Location)
+class LocationAddress(models.Model):
+    address = models.CharField(_('Address'), null=False, blank=False, max_length=255)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.address
+
+    class Meta:
+        verbose_name = _('Address')
+        verbose_name_plural = _('Addresses')
+
+
+class LocationImage(models.Model):
+    image = models.ImageField(_('Image'), upload_to="location/", blank=False, null=False)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+
+    @property
+    def get_absolute_image_url(self):
+        try:
+            return "{0}{1}".format(settings.BASE_URL, self.image.url)
+        except ValueError:
+            return ''
+
+    @property
+    def image_preview(self):
+        if self.image:
+            return mark_safe('<img src="{url}" height="200px" />'.format(url=self.image.url))
+        return ""
+
+    class Meta:
+        ordering = ('pk',)
+        verbose_name = _('Location mage')
+        verbose_name_plural = _('Location images')
+
+
+@receiver(post_delete, sender=LocationImage)
 def post_delete_image(sender, instance, *args, **kwargs):
     """When we delete Location instance, delete old image file """
     try:
@@ -50,7 +70,7 @@ def post_delete_image(sender, instance, *args, **kwargs):
         pass
 
 
-@receiver(pre_save, sender=Location)
+@receiver(pre_save, sender=LocationImage)
 def pre_save_image(sender, instance, *args, **kwargs):
     """When update Location, delete old image file.Instance old image file will delete from os """
     try:
@@ -64,15 +84,3 @@ def pre_save_image(sender, instance, *args, **kwargs):
                 os.remove(old_img)
     except:
         pass
-
-
-class LocationAddress(models.Model):
-    address = models.CharField(_('Address'), null=False, blank=False, max_length=255)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.address
-
-    class Meta:
-        verbose_name = _('Address')
-        verbose_name_plural = _('Addresses')

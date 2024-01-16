@@ -66,7 +66,7 @@ def get_company_info(request, api_token):
 
     data['delivery_types'] = [{'title': item.title} for item in DeliveryType.objects.all()]
 
-    for location in Location.objects.prefetch_related():
+    for location in Location.objects.prefetch_related('locationimage_set').prefetch_related('locationaddress_set'):
         location_data = {
             'id': location.id,
             'spot_id': location.spot_id,
@@ -76,13 +76,20 @@ def get_company_info(request, api_token):
             'region_id': location.region_id,
             'lat': location.lat,
             'lng': location.lng,
-            'image': location.get_absolute_image_url,
+            # 'image': location.get_absolute_image_url,
             'wayforpay_key': location.wayforpay_key,
             'wayforpay_account': location.wayforpay_account,
-            'location_addresses': []
+            'location_addresses': [],
+            'location_images': [],
         }
         for location_address in location.locationaddress_set.all():
             location_data['location_addresses'].append({'address': location_address.address})
+
+        for location_image in location.locationimage_set.all():
+            location_data['location_images'].append({
+                'image_url': location_image.get_absolute_image_url,
+                'id': location_image.id
+            })
 
         data['locations'].append(location_data)
 

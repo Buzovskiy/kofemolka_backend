@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-14 00:31+0100\n"
-"PO-Revision-Date: 2024-01-14 00:32+0200\n"
+"POT-Creation-Date: 2024-01-16 21:56+0100\n"
+"PO-Revision-Date: 2024-01-16 21:57+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -60,7 +60,7 @@ msgstr "Фамилия"
 msgid "Client"
 msgstr "Клиент"
 
-#: .\clients\models.py:23 .\clients\models.py:33 .\clients\models.py:34
+#: .\clients\models.py:23 .\clients\models.py:34 .\clients\models.py:35
 msgid "Feedbacks and complaints"
 msgstr "Отзывы и жалобы"
 
@@ -68,19 +68,19 @@ msgstr "Отзывы и жалобы"
 msgid "Rating"
 msgstr "Оценка"
 
-#: .\clients\models.py:26
+#: .\clients\models.py:27
 msgid "Approved"
 msgstr "Подтвержден"
 
-#: .\clients\models.py:27
+#: .\clients\models.py:28
 msgid "Response"
 msgstr "Ответ"
 
-#: .\clients\models.py:38 .\clients\models.py:44
+#: .\clients\models.py:39 .\clients\models.py:45
 msgid "Proposal"
 msgstr "Предложение"
 
-#: .\clients\models.py:45
+#: .\clients\models.py:46
 msgid "Proposals"
 msgstr "Предложения"
 
@@ -100,15 +100,11 @@ msgstr "Способы доставки"
 msgid "Delivery type"
 msgstr "Способ доставки"
 
-#: .\location\admin.py:42 .\location\models.py:18
-msgid "Image"
-msgstr "Изображение"
-
-#: .\location\apps.py:8 .\location\models.py:40
+#: .\location\apps.py:8 .\location\models.py:25
 msgid "Location"
 msgstr "Заведение"
 
-#: .\location\apps.py:9 .\location\models.py:41
+#: .\location\apps.py:9 .\location\models.py:26
 msgid "Locations"
 msgstr "Заведения"
 
@@ -140,21 +136,35 @@ msgstr "Широта"
 msgid "longitude"
 msgstr "Долгота"
 
-#: .\location\models.py:19
+#: .\location\models.py:18
 msgid "Wayforpay key"
 msgstr "Wayforpay key"
 
-#: .\location\models.py:20
+#: .\location\models.py:19
 msgid "Wayforpay account"
 msgstr "Wayforpay account"
 
-#: .\location\models.py:70 .\location\models.py:77
+#: .\location\models.py:30 .\location\models.py:37
 msgid "Address"
 msgstr "Адрес"
 
-#: .\location\models.py:78
+#: .\location\models.py:38
 msgid "Addresses"
 msgstr "Адреса"
+
+#: .\location\models.py:42
+msgid "Image"
+msgstr "Изображение"
+
+#: .\location\models.py:59
+#| msgid "Location name"
+msgid "Location mage"
+msgstr "Изображение заведения"
+
+#: .\location\models.py:60
+#| msgid "Location name"
+msgid "Location images"
+msgstr "Изображения заведения"
 
 #: .\location\templates\admin\location\location\change_list.html:8
 msgid "Get locations from CRM"
