@@ -40,7 +40,8 @@ urlpatterns = [
     path('v1/clients/Comments.GetList/api_token=<str:api_token>', CommentList.as_view()),
     path('v1/clients/Comments.Add/api_token=<str:api_token>', CommentList.as_view()),
     path('v1/clients/Clients.Details/api_token=<str:api_token>', ClientDetail.as_view()),
-    path('v1/clients/Proposals.Add/api_token=<str:api_token>', Proposals.as_view())
+    path('v1/clients/Proposals.Add/api_token=<str:api_token>', Proposals.as_view()),
+    path('v1/push/', include('push.urls'))
 ]
 
 if 'rosetta' in settings.INSTALLED_APPS:
