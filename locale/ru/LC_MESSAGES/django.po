@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 21:56+0100\n"
-"PO-Revision-Date: 2024-01-16 21:57+0200\n"
+"POT-Creation-Date: 2024-01-24 19:06+0100\n"
+"PO-Revision-Date: 2024-01-24 19:06+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -40,7 +40,7 @@ msgstr "Значение"
 msgid "Description"
 msgstr "Описание"
 
-#: .\clients\apps.py:8 .\clients\models.py:19
+#: .\clients\apps.py:8 .\clients\models.py:26
 msgid "Clients"
 msgstr "Клиенты"
 
@@ -56,31 +56,39 @@ msgstr "Имя"
 msgid "Last name"
 msgstr "Фамилия"
 
-#: .\clients\models.py:18 .\clients\models.py:25
+#: .\clients\models.py:14
+msgid "Registration token"
+msgstr "Registration token"
+
+#: .\clients\models.py:18
+msgid "Is used by Firebase for sending push notifications"
+msgstr "Используется Firebase для отправки пуш уведомлений"
+
+#: .\clients\models.py:25 .\clients\models.py:32
 msgid "Client"
 msgstr "Клиент"
 
-#: .\clients\models.py:23 .\clients\models.py:34 .\clients\models.py:35
+#: .\clients\models.py:30 .\clients\models.py:41 .\clients\models.py:42
 msgid "Feedbacks and complaints"
 msgstr "Отзывы и жалобы"
 
-#: .\clients\models.py:24
+#: .\clients\models.py:31
 msgid "Rating"
 msgstr "Оценка"
 
-#: .\clients\models.py:27
+#: .\clients\models.py:34
 msgid "Approved"
 msgstr "Подтвержден"
 
-#: .\clients\models.py:28
+#: .\clients\models.py:35
 msgid "Response"
 msgstr "Ответ"
 
-#: .\clients\models.py:39 .\clients\models.py:45
+#: .\clients\models.py:46 .\clients\models.py:52
 msgid "Proposal"
 msgstr "Предложение"
 
-#: .\clients\models.py:46
+#: .\clients\models.py:53
 msgid "Proposals"
 msgstr "Предложения"
 
@@ -99,6 +107,10 @@ msgstr "Способы доставки"
 #: .\delivery\models.py:12
 msgid "Delivery type"
 msgstr "Способ доставки"
+
+#: .\location\admin.py:31 .\location\models.py:42
+msgid "Image"
+msgstr "Изображение"
 
 #: .\location\apps.py:8 .\location\models.py:25
 msgid "Location"
@@ -152,17 +164,11 @@ msgstr "Адрес"
 msgid "Addresses"
 msgstr "Адреса"
 
-#: .\location\models.py:42
-msgid "Image"
-msgstr "Изображение"
-
-#: .\location\models.py:59
-#| msgid "Location name"
+#: .\location\models.py:60
 msgid "Location mage"
 msgstr "Изображение заведения"
 
-#: .\location\models.py:60
-#| msgid "Location name"
+#: .\location\models.py:61
 msgid "Location images"
 msgstr "Изображения заведения"
 

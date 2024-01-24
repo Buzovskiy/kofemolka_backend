@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 21:56+0100\n"
+"POT-Creation-Date: 2024-01-24 19:06+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,7 +39,7 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: .\clients\apps.py:8 .\clients\models.py:19
+#: .\clients\apps.py:8 .\clients\models.py:26
 msgid "Clients"
 msgstr ""
 
@@ -55,31 +55,39 @@ msgstr ""
 msgid "Last name"
 msgstr ""
 
-#: .\clients\models.py:18 .\clients\models.py:25
+#: .\clients\models.py:14
+msgid "Registration token"
+msgstr ""
+
+#: .\clients\models.py:18
+msgid "Is used by Firebase for sending push notifications"
+msgstr ""
+
+#: .\clients\models.py:25 .\clients\models.py:32
 msgid "Client"
 msgstr ""
 
-#: .\clients\models.py:23 .\clients\models.py:34 .\clients\models.py:35
+#: .\clients\models.py:30 .\clients\models.py:41 .\clients\models.py:42
 msgid "Feedbacks and complaints"
 msgstr ""
 
-#: .\clients\models.py:24
+#: .\clients\models.py:31
 msgid "Rating"
 msgstr ""
 
-#: .\clients\models.py:27
+#: .\clients\models.py:34
 msgid "Approved"
 msgstr ""
 
-#: .\clients\models.py:28
+#: .\clients\models.py:35
 msgid "Response"
 msgstr ""
 
-#: .\clients\models.py:39 .\clients\models.py:45
+#: .\clients\models.py:46 .\clients\models.py:52
 msgid "Proposal"
 msgstr ""
 
-#: .\clients\models.py:46
+#: .\clients\models.py:53
 msgid "Proposals"
 msgstr ""
 
@@ -97,6 +105,10 @@ msgstr ""
 
 #: .\delivery\models.py:12
 msgid "Delivery type"
+msgstr ""
+
+#: .\location\admin.py:31 .\location\models.py:42
+msgid "Image"
 msgstr ""
 
 #: .\location\apps.py:8 .\location\models.py:25
@@ -151,15 +163,11 @@ msgstr ""
 msgid "Addresses"
 msgstr ""
 
-#: .\location\models.py:42
-msgid "Image"
-msgstr ""
-
-#: .\location\models.py:59
+#: .\location\models.py:60
 msgid "Location mage"
 msgstr ""
 
-#: .\location\models.py:60
+#: .\location\models.py:61
 msgid "Location images"
 msgstr ""
 

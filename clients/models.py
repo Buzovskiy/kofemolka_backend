@@ -10,6 +10,13 @@ class Clients(models.Model):
     client_id = models.CharField(_('Client id'), null=False, blank=False, max_length=255, unique=True)
     firstname = models.CharField(_('First name'), null=False, blank=False, max_length=255)
     lastname = models.CharField(_('Last name'), null=False, blank=False, max_length=255)
+    registration_token = models.CharField(
+        _('Registration token'),
+        null=True,
+        blank=True,
+        max_length=255,
+        help_text=_('Is used by Firebase for sending push notifications')
+    )
 
     def __str__(self):
         return f"{self.firstname} {self.lastname}"
