@@ -98,24 +98,32 @@ class UpdateRegistrationToken(APIView):
             return Response(status=status.HTTP_401_UNAUTHORIZED)
 
         params = request.POST.dict()
-        if 'client_id' not in params or 'registration_token' not in params or not params['registration_token']:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+        if 'client_id' not in params or 'registration_token' not in params:
+            return Response(
+                'client_id or registration_token are not specified', status=status.HTTP_400_BAD_REQUEST)
 
         try:
             client = Clients.objects.get(client_id=params['client_id'])
-            client.save(registration_token=params['registration_token'])
+            client.registration_token = params['registration_token']
+            client.save()
         except Clients.DoesNotExist:
             # If client does not exist request client in Poster and save it with registration token
             response = Poster().get(url='/api/clients.getClient', params={'client_id': params['client_id']})
             if 'error' in response:
                 return Response(status=status.HTTP_400_BAD_REQUEST)
 
-            client_data = {
-                'client_id': response['client_id'],
-                'firstname': response['firstname'],
-                'lastname': response['lastname'],
-                'registration_token': params['registration_token'],
-            }
-            Clients.objects.create(**client_data)
+            if 'response' in response.json() and len(response.json()['response']):
+                client_remote = response.json()['response'][0]
+                client_data = {
+                    'client_id': client_remote['client_id'],
+                    'firstname': client_remote['firstname'],
+                    'lastname': client_remote['lastname'],
+                    'registration_token': params['registration_token'],
+                }
+                client = Clients.objects.create(**client_data)
+            else:
+                return Response('Client is not found', status=status.HTTP_400_BAD_REQUEST)
 
-        return Response(status=status.HTTP_200_OK)
+        serializer = ClientsSerializer(client)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)

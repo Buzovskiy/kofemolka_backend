@@ -14,7 +14,7 @@ class ClientsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Clients
-        fields = ['id', 'client_id', 'firstname', 'lastname', 'comment_set']
+        fields = ['id', 'client_id', 'firstname', 'lastname', 'registration_token', 'comment_set']
 
 
 class CommentSerializerDepth1(serializers.ModelSerializer):
