@@ -97,7 +97,7 @@ class UpdateRegistrationToken(APIView):
         if api_token != settings.API_TOKEN:
             return Response(status=status.HTTP_401_UNAUTHORIZED)
 
-        params = request.data.dict()
+        params = request.data
         if 'client_id' not in params or 'registration_token' not in params:
             return Response(
                 'client_id or registration_token are not specified', status=status.HTTP_400_BAD_REQUEST)
