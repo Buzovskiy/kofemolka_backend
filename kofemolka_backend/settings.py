@@ -29,6 +29,8 @@ SMS_SIGNATURE = decouple.config('SMS_SIGNATURE')
 POSTER_TOKEN = decouple.config('POSTER_TOKEN')
 BASE_URL = decouple.config('BASE_URL')
 
+FIREBASE_PROJECT_ID = decouple.config('FIREBASE_PROJECT_ID')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = decouple.config('DEBUG', default=False, cast=bool)
 

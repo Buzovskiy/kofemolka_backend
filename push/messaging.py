@@ -16,7 +16,7 @@ import google.auth.transport.requests
 from google.oauth2 import service_account
 from django.conf import settings
 
-PROJECT_ID = 'vitalii-fecf8'
+PROJECT_ID = settings.FIREBASE_PROJECT_ID
 BASE_URL = 'https://fcm.googleapis.com'
 FCM_ENDPOINT = 'v1/projects/' + PROJECT_ID + '/messages:send'
 FCM_URL = BASE_URL + '/' + FCM_ENDPOINT
@@ -30,7 +30,7 @@ def _get_access_token():
     :return: Access token.
     """
     credentials = service_account.Credentials.from_service_account_file(
-        settings.BASE_DIR / 'push/firebase_private_key.json',
+        settings.BASE_DIR / 'firebase_private_key.json',
         scopes=SCOPES)
     request = google.auth.transport.requests.Request()
     credentials.refresh(request)
