@@ -14,6 +14,7 @@ class ProductsAdmin(admin.ModelAdmin):
         urls = super().get_urls()
         my_urls = [
             path('update-products-from-api/', self.update_products_from_api),
+            path('send-push/<int:message_id>', self.send_push),
         ]
         return my_urls + urls
 
@@ -27,6 +28,12 @@ class ProductsAdmin(admin.ModelAdmin):
         except:
             messages.error(request, 'e')
         return HttpResponseRedirect("../")
+
+    def send_push(self, request, message_id):
+        from django.urls import reverse
+        change_url = reverse("admin:product_products_change", args=(message_id,))
+        print('hello')
+        return HttpResponseRedirect(change_url)
 
 
 @admin.register(BatchTickets)
