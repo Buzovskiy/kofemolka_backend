@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-04 17:23+0100\n"
+"POT-Creation-Date: 2024-02-05 17:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,7 +108,7 @@ msgstr ""
 msgid "Delivery type"
 msgstr ""
 
-#: .\location\admin.py:31 .\location\models.py:44 .\push\admin.py:19
+#: .\location\admin.py:31 .\location\models.py:44 .\push\admin.py:16
 msgid "Image"
 msgstr ""
 
@@ -228,7 +228,7 @@ msgstr ""
 msgid "Get products"
 msgstr ""
 
-#: .\push\admin.py:23
+#: .\push\admin.py:20
 msgid "Image url"
 msgstr ""
 
@@ -268,8 +268,32 @@ msgstr ""
 msgid "Push messages"
 msgstr ""
 
-#: .\push\models.py:77
+#: .\push\models.py:80
 msgid "Date created"
+msgstr ""
+
+#: .\push\models.py:92
+msgid "Cleanliness and sanitation"
+msgstr ""
+
+#: .\push\models.py:93
+msgid "Products quality"
+msgstr ""
+
+#: .\push\models.py:94
+msgid "Service quality"
+msgstr ""
+
+#: .\push\models.py:95
+msgid "Comment"
+msgstr ""
+
+#: .\push\models.py:101
+msgid "Service quality answer"
+msgstr ""
+
+#: .\push\models.py:102
+msgid "Service quality answers"
 msgstr ""
 
 #: .\sms\models.py:9

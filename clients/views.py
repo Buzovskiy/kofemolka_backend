@@ -6,6 +6,7 @@ from .serializers import CommentSerializer, ClientsSerializer, ProposalSerialize
 from .models import Comment, Clients
 from django.conf import settings
 from app_settings.poster import Poster
+from .utils import get_client_or_create
 
 
 class CommentList(APIView):
@@ -106,27 +107,12 @@ class UpdateRegistrationToken(APIView):
             return Response(
                 'client_id or registration_token are not specified', status=status.HTTP_400_BAD_REQUEST)
 
-        try:
-            client = Clients.objects.get(client_id=params['client_id'])
-            client.registration_token = params['registration_token']
-            client.save()
-        except Clients.DoesNotExist:
-            # If client does not exist request client in Poster and save it with registration token
-            response = Poster().get(url='/api/clients.getClient', params={'client_id': params['client_id']})
-            if 'error' in response:
-                return Response(status=status.HTTP_400_BAD_REQUEST)
+        client = get_client_or_create(params['client_id'])
+        if client is None:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
-            if 'response' in response.json() and len(response.json()['response']):
-                client_remote = response.json()['response'][0]
-                client_data = {
-                    'client_id': client_remote['client_id'],
-                    'firstname': client_remote['firstname'],
-                    'lastname': client_remote['lastname'],
-                    'registration_token': params['registration_token'],
-                }
-                client = Clients.objects.create(**client_data)
-            else:
-                return Response('Client is not found', status=status.HTTP_400_BAD_REQUEST)
+        client.registration_token = params['registration_token']
+        client.save()
 
         serializer = ClientsSerializer(client)
 

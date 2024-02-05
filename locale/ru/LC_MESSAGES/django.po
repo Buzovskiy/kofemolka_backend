@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-04 17:23+0100\n"
-"PO-Revision-Date: 2024-02-04 17:23+0200\n"
+"POT-Creation-Date: 2024-02-05 17:41+0100\n"
+"PO-Revision-Date: 2024-02-05 17:51+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -109,7 +109,7 @@ msgstr "Способы доставки"
 msgid "Delivery type"
 msgstr "Способ доставки"
 
-#: .\location\admin.py:31 .\location\models.py:44 .\push\admin.py:19
+#: .\location\admin.py:31 .\location\models.py:44 .\push\admin.py:16
 msgid "Image"
 msgstr "Изображение"
 
@@ -229,7 +229,7 @@ msgstr "Получить товары из CRM"
 msgid "Get products"
 msgstr "Получить товары"
 
-#: .\push\admin.py:23
+#: .\push\admin.py:20
 msgid "Image url"
 msgstr "Url изображения"
 
@@ -269,10 +269,35 @@ msgstr "Push сообщение"
 msgid "Push messages"
 msgstr "Push сообщения"
 
-#: .\push\models.py:77
-#| msgid "Created"
+#: .\push\models.py:80
 msgid "Date created"
 msgstr "Создано"
+
+#: .\push\models.py:92
+#| msgid "Complaints and suggestions"
+msgid "Cleanliness and sanitation"
+msgstr "Чистота и санитария"
+
+#: .\push\models.py:93
+#| msgid "Products"
+msgid "Products quality"
+msgstr "Качество продукции"
+
+#: .\push\models.py:94
+msgid "Service quality"
+msgstr "Качество обслуживания"
+
+#: .\push\models.py:95
+msgid "Comment"
+msgstr "Комментарий"
+
+#: .\push\models.py:101
+msgid "Service quality answer"
+msgstr "Оценка качества услуги"
+
+#: .\push\models.py:102
+msgid "Service quality answers"
+msgstr "Оценка качества услуг"
 
 #: .\sms\models.py:9
 msgid "SMS_SIGNATURE"
@@ -314,12 +339,6 @@ msgstr "Верифицировано"
 #: .\sms\models.py:48
 msgid "Sms codes"
 msgstr "Смс коды"
-
-#~ msgid "Complaints and suggestions"
-#~ msgstr "Жалобы и предложения"
-
-#~ msgid "Comment"
-#~ msgstr "Комментарий"
 
 #~ msgid "Comments"
 #~ msgstr "Комментарии"

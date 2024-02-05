@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import PushGroups, Message, MessageClient
+from .models import PushGroups, Message, MessageClient, ServiceQualityAnswers
 from django.utils.translation import gettext_lazy as _
 
 
@@ -26,3 +26,9 @@ class MessageAdmin(admin.ModelAdmin):
 class MessageClientAdmin(admin.ModelAdmin):
     list_display = ['message', 'client', 'created_at']
     readonly_fields = ['created_at']
+
+
+@admin.register(ServiceQualityAnswers)
+class ServiceQualityAnswersAdmin(admin.ModelAdmin):
+    list_display = ['location', 'clients', 'id_clean', 'id_products_quality', 'id_service_quality', 'created_at']
+

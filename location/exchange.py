@@ -11,16 +11,23 @@ def import_locations():
     objects_created = 0
 
     for obj in response.json()['response']:
-        object_defaults = {
-            'spot_id': obj['spot_id'],
-            'name': '' if obj['name'] is None else obj['name'],
-            'spot_name': '' if obj['spot_name'] is None else obj['spot_name'],
-            'spot_address': '' if obj['spot_adress'] is None else obj['spot_adress'],
-            'region_id': '' if obj['region_id'] is None else obj['region_id'],
-            # 'lat': '' if obj['lat'] is None else obj['lat'],
-            # 'lng': '' if obj['lng'] is None else obj['lng'],
-        }
+        object_defaults = prepare_location_data(obj)
         obj, created = Location.objects.update_or_create(spot_id=obj['spot_id'], defaults=object_defaults)
         if created:
             objects_created += 1
     return {'objects_created': objects_created}
+
+
+def prepare_location_data(location_data):
+    """
+    :param location_data: dictionary with key values corresponding to location data
+    :return: dictionary with location data which are to add to the database
+    """
+    data = {
+        'spot_id': location_data['spot_id'],
+        'name': '' if location_data['name'] is None else location_data['name'],
+        'spot_name': '' if location_data['spot_name'] is None else location_data['spot_name'],
+        'spot_address': '' if location_data['spot_adress'] is None else location_data['spot_adress'],
+        'region_id': '' if location_data['region_id'] is None else location_data['region_id'],
+    }
+    return data

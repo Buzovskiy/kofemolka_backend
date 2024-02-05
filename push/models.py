@@ -72,6 +72,9 @@ def save_image(sender, instance, *args, **kwargs):
 
 
 class MessageClient(models.Model):
+    """
+    The table where push messages are stored
+    """
     message = models.ForeignKey(Message, on_delete=models.CASCADE, blank=False, null=False)
     client = models.ForeignKey('clients.Clients', on_delete=models.CASCADE, blank=False, null=False)
     created_at = models.DateTimeField(verbose_name=_('Date created'), auto_now_add=True)
@@ -81,3 +84,20 @@ class MessageClient(models.Model):
 
     class Meta:
         unique_together = [['message', 'client']]
+
+
+class ServiceQualityAnswers(models.Model):
+    location = models.ForeignKey('location.Location', verbose_name=_('Location'), on_delete=models.CASCADE, blank=False, null=False)
+    clients = models.ForeignKey('clients.Clients', verbose_name=_('Client'), on_delete=models.CASCADE, blank=False, null=False)
+    id_clean = models.IntegerField(verbose_name=_('Cleanliness and sanitation'), blank=True, null=True)
+    id_products_quality = models.IntegerField(verbose_name=_('Products quality'), blank=True, null=True)
+    id_service_quality = models.IntegerField(verbose_name=_('Service quality'), blank=True, null=True)
+    comment = models.TextField(verbose_name=_('Comment'), blank=True, null=True)
+    created_at = models.DateTimeField(verbose_name=_('Date created'), null=True, auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.location} - {self.clients}'
+
+    class Meta:
+        verbose_name = _('Service quality answer')
+        verbose_name_plural = _('Service quality answers')
