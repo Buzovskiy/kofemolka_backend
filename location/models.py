@@ -6,6 +6,8 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.html import mark_safe
 from django.conf import settings
 
+from kofemolka_backend.utils import post_delete_image, pre_save_image
+
 
 class Location(models.Model):
     spot_id = models.CharField(_('Location id'), null=False, blank=False, max_length=255, unique=True)
@@ -62,25 +64,10 @@ class LocationImage(models.Model):
 
 
 @receiver(post_delete, sender=LocationImage)
-def post_delete_image(sender, instance, *args, **kwargs):
-    """When we delete Location instance, delete old image file """
-    try:
-        instance.image.delete(save=False)
-    except:
-        pass
+def delete_image(sender, instance, *args, **kwargs):
+    post_delete_image(sender, instance, field_name='image', *args, **kwargs)
 
 
 @receiver(pre_save, sender=LocationImage)
-def pre_save_image(sender, instance, *args, **kwargs):
-    """When update Location, delete old image file.Instance old image file will delete from os """
-    try:
-        old_img = instance.__class__.objects.get(pk=instance.pk).image.path
-        try:
-            new_img = instance.image.path
-        except:
-            new_img = None
-        if new_img != old_img:
-            if os.path.exists(old_img):
-                os.remove(old_img)
-    except:
-        pass
+def save_image(sender, instance, *args, **kwargs):
+    pre_save_image(sender, instance, field_name='image', *args, **kwargs)

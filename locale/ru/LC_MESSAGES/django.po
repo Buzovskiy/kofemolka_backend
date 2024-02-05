@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-24 19:06+0100\n"
-"PO-Revision-Date: 2024-01-24 19:06+0200\n"
+"POT-Creation-Date: 2024-02-04 17:23+0100\n"
+"PO-Revision-Date: 2024-02-04 17:23+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -25,6 +25,7 @@ msgid "Application settings"
 msgstr "Настройки приложения"
 
 #: .\app_settings\models.py:16 .\delivery\models.py:6 .\payment\models.py:6
+#: .\push\models.py:13
 msgid "Title"
 msgstr "Название"
 
@@ -64,7 +65,7 @@ msgstr "Registration token"
 msgid "Is used by Firebase for sending push notifications"
 msgstr "Используется Firebase для отправки пуш уведомлений"
 
-#: .\clients\models.py:25 .\clients\models.py:32
+#: .\clients\models.py:25 .\clients\models.py:32 .\push\models.py:37
 msgid "Client"
 msgstr "Клиент"
 
@@ -108,67 +109,67 @@ msgstr "Способы доставки"
 msgid "Delivery type"
 msgstr "Способ доставки"
 
-#: .\location\admin.py:31 .\location\models.py:42
+#: .\location\admin.py:31 .\location\models.py:44 .\push\admin.py:19
 msgid "Image"
 msgstr "Изображение"
 
-#: .\location\apps.py:8 .\location\models.py:25
+#: .\location\apps.py:8 .\location\models.py:27
 msgid "Location"
 msgstr "Заведение"
 
-#: .\location\apps.py:9 .\location\models.py:26
+#: .\location\apps.py:9 .\location\models.py:28
 msgid "Locations"
 msgstr "Заведения"
 
-#: .\location\models.py:11
+#: .\location\models.py:13
 msgid "Location id"
 msgstr "Id заведения"
 
-#: .\location\models.py:12 .\product\models.py:6 .\product\models.py:19
+#: .\location\models.py:14 .\product\models.py:6 .\product\models.py:19
 msgid "Name"
 msgstr "Название"
 
-#: .\location\models.py:13
+#: .\location\models.py:15
 msgid "Location name"
 msgstr "Название заведения"
 
-#: .\location\models.py:14
+#: .\location\models.py:16
 msgid "Location address"
 msgstr "Адрес заведения"
 
-#: .\location\models.py:15
+#: .\location\models.py:17
 msgid "Region id"
 msgstr "Region id"
 
-#: .\location\models.py:16
+#: .\location\models.py:18
 msgid "Latitude"
 msgstr "Широта"
 
-#: .\location\models.py:17
+#: .\location\models.py:19
 msgid "longitude"
 msgstr "Долгота"
 
-#: .\location\models.py:18
+#: .\location\models.py:20
 msgid "Wayforpay key"
 msgstr "Wayforpay key"
 
-#: .\location\models.py:19
+#: .\location\models.py:21
 msgid "Wayforpay account"
 msgstr "Wayforpay account"
 
-#: .\location\models.py:30 .\location\models.py:37
+#: .\location\models.py:32 .\location\models.py:39
 msgid "Address"
 msgstr "Адрес"
 
-#: .\location\models.py:38
+#: .\location\models.py:40
 msgid "Addresses"
 msgstr "Адреса"
 
-#: .\location\models.py:60
+#: .\location\models.py:62
 msgid "Location mage"
 msgstr "Изображение заведения"
 
-#: .\location\models.py:61
+#: .\location\models.py:63
 msgid "Location images"
 msgstr "Изображения заведения"
 
@@ -227,6 +228,51 @@ msgstr "Получить товары из CRM"
 #: .\product\templates\admin\product\products\change_list.html:9
 msgid "Get products"
 msgstr "Получить товары"
+
+#: .\push\admin.py:23
+msgid "Image url"
+msgstr "Url изображения"
+
+#: .\push\apps.py:8
+msgid "Sending push notifications"
+msgstr "Отправка push уведомлений"
+
+#: .\push\models.py:20 .\push\models.py:39
+msgid "Push notifications group"
+msgstr "Группа push уведомлений"
+
+#: .\push\models.py:21
+msgid "Push notifications groups"
+msgstr "Группы push уведомлений"
+
+#: .\push\models.py:25
+msgid "Push notification"
+msgstr "Push уведомление"
+
+#: .\push\models.py:26
+msgid "Push notification service quality"
+msgstr "Push уведомление бонус"
+
+#: .\push\models.py:27
+msgid "Push notification service bonus"
+msgstr "Push уведомление оценка качества услуги"
+
+#: .\push\models.py:33
+msgid "Notification type"
+msgstr "Тип push уведомления"
+
+#: .\push\models.py:60
+msgid "Push message"
+msgstr "Push сообщение"
+
+#: .\push\models.py:61
+msgid "Push messages"
+msgstr "Push сообщения"
+
+#: .\push\models.py:77
+#| msgid "Created"
+msgid "Date created"
+msgstr "Создано"
 
 #: .\sms\models.py:9
 msgid "SMS_SIGNATURE"

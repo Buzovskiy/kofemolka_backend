@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-24 19:06+0100\n"
+"POT-Creation-Date: 2024-02-04 17:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,6 +24,7 @@ msgid "Application settings"
 msgstr ""
 
 #: .\app_settings\models.py:16 .\delivery\models.py:6 .\payment\models.py:6
+#: .\push\models.py:13
 msgid "Title"
 msgstr ""
 
@@ -63,7 +64,7 @@ msgstr ""
 msgid "Is used by Firebase for sending push notifications"
 msgstr ""
 
-#: .\clients\models.py:25 .\clients\models.py:32
+#: .\clients\models.py:25 .\clients\models.py:32 .\push\models.py:37
 msgid "Client"
 msgstr ""
 
@@ -107,67 +108,67 @@ msgstr ""
 msgid "Delivery type"
 msgstr ""
 
-#: .\location\admin.py:31 .\location\models.py:42
+#: .\location\admin.py:31 .\location\models.py:44 .\push\admin.py:19
 msgid "Image"
 msgstr ""
 
-#: .\location\apps.py:8 .\location\models.py:25
+#: .\location\apps.py:8 .\location\models.py:27
 msgid "Location"
 msgstr ""
 
-#: .\location\apps.py:9 .\location\models.py:26
+#: .\location\apps.py:9 .\location\models.py:28
 msgid "Locations"
 msgstr ""
 
-#: .\location\models.py:11
+#: .\location\models.py:13
 msgid "Location id"
 msgstr ""
 
-#: .\location\models.py:12 .\product\models.py:6 .\product\models.py:19
+#: .\location\models.py:14 .\product\models.py:6 .\product\models.py:19
 msgid "Name"
 msgstr ""
 
-#: .\location\models.py:13
+#: .\location\models.py:15
 msgid "Location name"
 msgstr ""
 
-#: .\location\models.py:14
+#: .\location\models.py:16
 msgid "Location address"
 msgstr ""
 
-#: .\location\models.py:15
+#: .\location\models.py:17
 msgid "Region id"
 msgstr ""
 
-#: .\location\models.py:16
+#: .\location\models.py:18
 msgid "Latitude"
 msgstr ""
 
-#: .\location\models.py:17
+#: .\location\models.py:19
 msgid "longitude"
 msgstr ""
 
-#: .\location\models.py:18
+#: .\location\models.py:20
 msgid "Wayforpay key"
 msgstr ""
 
-#: .\location\models.py:19
+#: .\location\models.py:21
 msgid "Wayforpay account"
 msgstr ""
 
-#: .\location\models.py:30 .\location\models.py:37
+#: .\location\models.py:32 .\location\models.py:39
 msgid "Address"
 msgstr ""
 
-#: .\location\models.py:38
+#: .\location\models.py:40
 msgid "Addresses"
 msgstr ""
 
-#: .\location\models.py:60
+#: .\location\models.py:62
 msgid "Location mage"
 msgstr ""
 
-#: .\location\models.py:61
+#: .\location\models.py:63
 msgid "Location images"
 msgstr ""
 
@@ -225,6 +226,50 @@ msgstr ""
 
 #: .\product\templates\admin\product\products\change_list.html:9
 msgid "Get products"
+msgstr ""
+
+#: .\push\admin.py:23
+msgid "Image url"
+msgstr ""
+
+#: .\push\apps.py:8
+msgid "Sending push notifications"
+msgstr ""
+
+#: .\push\models.py:20 .\push\models.py:39
+msgid "Push notifications group"
+msgstr ""
+
+#: .\push\models.py:21
+msgid "Push notifications groups"
+msgstr ""
+
+#: .\push\models.py:25
+msgid "Push notification"
+msgstr ""
+
+#: .\push\models.py:26
+msgid "Push notification service quality"
+msgstr ""
+
+#: .\push\models.py:27
+msgid "Push notification service bonus"
+msgstr ""
+
+#: .\push\models.py:33
+msgid "Notification type"
+msgstr ""
+
+#: .\push\models.py:60
+msgid "Push message"
+msgstr ""
+
+#: .\push\models.py:61
+msgid "Push messages"
+msgstr ""
+
+#: .\push\models.py:77
+msgid "Date created"
 msgstr ""
 
 #: .\sms\models.py:9
