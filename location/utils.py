@@ -19,6 +19,9 @@ def get_location_or_create(spot_id):
 
         if 'response' in response.json() and len(response.json()['response']):
             object_remote = response.json()['response']
+            object_remote['spot_name'] = object_remote['name']
+            object_remote['spot_adress'] = object_remote['address']
+            object_remote['region_id'] = ''
             object_data = prepare_location_data(object_remote)
             location = Location.objects.create(**object_data)
         else:
