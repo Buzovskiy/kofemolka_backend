@@ -38,6 +38,8 @@ def add_service_quality_answer(request, api_token):
             return Response(serializer_api.errors, status=status.HTTP_400_BAD_REQUEST)
         client = get_client_or_create(client_id=request.data['client_id'])
         location = get_location_or_create(spot_id=request.data['spot_id'])
+        if client is None or location is None:
+            return Response('Client or location are not found', status=status.HTTP_400_BAD_REQUEST)
         model_data = {
             'client': client.id,
             'location': location.id
