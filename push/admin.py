@@ -30,5 +30,5 @@ class MessageClientAdmin(admin.ModelAdmin):
 
 @admin.register(ServiceQualityAnswers)
 class ServiceQualityAnswersAdmin(admin.ModelAdmin):
-    list_display = ['location', 'clients', 'id_clean', 'id_products_quality', 'id_service_quality', 'created_at']
+    list_display = ['location', 'client', 'id_clean', 'id_products_quality', 'id_service_quality', 'created_at']
 

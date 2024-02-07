@@ -87,8 +87,10 @@ class MessageClient(models.Model):
 
 
 class ServiceQualityAnswers(models.Model):
-    location = models.ForeignKey('location.Location', verbose_name=_('Location'), on_delete=models.CASCADE, blank=False, null=False)
-    clients = models.ForeignKey('clients.Clients', verbose_name=_('Client'), on_delete=models.CASCADE, blank=False, null=False)
+    location = models.ForeignKey(
+        'location.Location', verbose_name=_('Location'), on_delete=models.CASCADE, blank=False, null=False)
+    client = models.ForeignKey(
+        'clients.Clients', verbose_name=_('Client'), on_delete=models.CASCADE, blank=False, null=False)
     id_clean = models.IntegerField(verbose_name=_('Cleanliness and sanitation'), blank=True, null=True)
     id_products_quality = models.IntegerField(verbose_name=_('Products quality'), blank=True, null=True)
     id_service_quality = models.IntegerField(verbose_name=_('Service quality'), blank=True, null=True)
@@ -96,7 +98,7 @@ class ServiceQualityAnswers(models.Model):
     created_at = models.DateTimeField(verbose_name=_('Date created'), null=True, auto_now_add=True)
 
     def __str__(self):
-        return f'{self.location} - {self.clients}'
+        return f'{self.location} - {self.client}'
 
     class Meta:
         verbose_name = _('Service quality answer')
