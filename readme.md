@@ -25,3 +25,7 @@ suggestion is created.
 For push notifications it's necessary place file firebase_private_key.json in ./project
 directory. The content of this file is generated on Firebase 
 https://console.firebase.google.com/u/0/project/vitalii-fecf8/settings/serviceaccounts/adminsdk
+In the list of settings /admin/app_settings/appsettings/
+create two settings.
+1. Time T1 in seconds when push quality service polling should be sent. Key t1_service_quality_polling_push
+2. Time T2 in seconds when should pass from the last push quality service polling. Key t2_service_quality_polling_push
