@@ -24,6 +24,9 @@ def webhook_test(request):
     if request.method == 'GET':
         return Response('get: webhook_test')
     if request.method == 'POST':
+        if ('object' in request.data and 'object_id' in request.data and 'action' in request.data and
+                request.data['object'] == 'transaction'):
+            pass
         return Response('post: webhook_test', status=200)
 
 
