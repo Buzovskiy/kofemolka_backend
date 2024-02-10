@@ -7,6 +7,8 @@ from .serializers import ServiceQualityAnswersSerializer, ServiceQualityAnswersS
 from django.conf import settings
 from clients.utils import get_client_or_create
 from location.utils import get_location_or_create
+from app_settings.poster import Poster
+from order.models import Transaction
 
 
 @api_view(['GET', 'POST'])
@@ -24,8 +26,28 @@ def webhook_test(request):
     if request.method == 'GET':
         return Response('get: webhook_test')
     if request.method == 'POST':
-        if ('object' in request.data and 'object_id' in request.data and 'action' in request.data and
-                request.data['object'] == 'transaction'):
+        try:
+            if not (request.data['object'] == 'transaction' and request.data['action'] == 'closed'):
+                return Response(status=200)
+
+            transaction_id = request.data['object_id']
+            response = Poster().get(url='/api/dash.getTransaction', params={'transaction_id': transaction_id})
+            if not len(response.json()['response']):
+                return Response(status=200)
+            transaction = response.json()['response'][0]
+            client_id = transaction['client_id']
+            spot_id = transaction['spot_id']
+            transaction_id = transaction['transaction_id']
+            client = get_client_or_create(client_id)
+            location = get_location_or_create(spot_id)
+            if not (client and location):
+                return Response(status=200)
+            # Save the information about the client order.
+            Transaction.objects.update_or_create(
+                transaction_id=transaction_id,
+                defaults={"transaction_id": transaction_id, "client": client, "location": location},
+            )
+        except KeyError:
             pass
         return Response('post: webhook_test', status=200)
 
