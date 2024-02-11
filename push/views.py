@@ -22,34 +22,32 @@ def send_test(request):
 
 
 @api_view(['GET', 'POST'])
-def webhook_test(request):
+def poster_webhook(request):
     if request.method == 'GET':
         return Response('get: webhook_test')
     if request.method == 'POST':
         try:
-            if not (request.data['object'] == 'transaction' and request.data['action'] == 'closed'):
-                return Response(status=200)
-
-            transaction_id = request.data['object_id']
-            response = Poster().get(url='/api/dash.getTransaction', params={'transaction_id': transaction_id})
-            if not len(response.json()['response']):
-                return Response(status=200)
-            transaction = response.json()['response'][0]
-            client_id = transaction['client_id']
-            spot_id = transaction['spot_id']
-            transaction_id = transaction['transaction_id']
-            client = get_client_or_create(client_id)
-            location = get_location_or_create(spot_id)
-            if not (client and location):
-                return Response(status=200)
-            # Save the information about the client order.
-            Transaction.objects.update_or_create(
-                transaction_id=transaction_id,
-                defaults={"transaction_id": transaction_id, "client": client, "location": location},
-            )
+            if request.data['object'] == 'transaction' and request.data['action'] == 'closed':
+                transaction_id = request.data['object_id']
+                response = Poster().get(url='/api/dash.getTransaction', params={'transaction_id': transaction_id})
+                if not len(response.json()['response']):
+                    return Response(status=200)
+                transaction = response.json()['response'][0]
+                client_id = transaction['client_id']
+                spot_id = transaction['spot_id']
+                transaction_id = transaction['transaction_id']
+                client = get_client_or_create(client_id)
+                location = get_location_or_create(spot_id)
+                if not (client and location):
+                    return Response(status=200)
+                # Save the information about the client order.
+                Transaction.objects.update_or_create(
+                    transaction_id=transaction_id,
+                    defaults={"transaction_id": transaction_id, "client": client, "location": location},
+                )
         except KeyError:
             pass
-        return Response('post: webhook_test', status=200)
+        return Response(status=200)
 
 
 @api_view(['POST'])
