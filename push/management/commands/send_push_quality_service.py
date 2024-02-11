@@ -10,16 +10,36 @@ from app_settings.models import AppSettings
 
 
 class Command(BaseCommand):
-    # help = "Closes the specified poll for voting"
+    help = """
+    python manage.py send_push_quality_service: 
+    1. время T1 через которое срабатывает пуш качество услуги. 
+    2. время Т2, которое должно пройти после последней отправки пуш качество услуги перед тем, 
+    как клиент получит следующий пуш качество услуги.
+    python manage.py send_push_quality_service --transaction_id 1:
+    Укажите id транзакции, чтобы отправить клиенту пуш в любом случае не зависимо от t1 и t2
+    """
     #
     def add_arguments(self, parser):
-        parser.add_argument("--mode", required=False)
+        parser.add_argument("--transaction_id", required=False)
 
     def handle(self, *args, **options):
-        mode = options["mode"]
+        transaction_id = options["transaction_id"]
         push_template = Message.objects.filter(type__exact='push_notification_service_quality').first()
         if push_template is None:
             return False
+
+        if transaction_id:  # Если указан флаг transaction_id, отправляем ему в любом случае
+            transaction_id = int(transaction_id)
+            order = Transaction.objects.filter(transaction_id=transaction_id).first()
+            fcm_message = push_template.build_push_notification_service_quality_message(
+                registration_token=order.client.registration_token
+            )
+            fcm_response = _send_fcm_message(fcm_message)
+            print(fcm_response.ok)
+            print(fcm_response.status_code)
+            print(fcm_response.text)
+            return False
+
         try:
             t1 = AppSettings.objects.get(key='t1_service_quality_polling_push').value
             t2 = AppSettings.objects.get(key='t2_service_quality_polling_push').value
