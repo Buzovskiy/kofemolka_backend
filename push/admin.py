@@ -22,10 +22,10 @@ class MessageAdmin(admin.ModelAdmin):
         return obj.get_absolute_image_url
 
 
-@admin.register(MessageClient)
-class MessageClientAdmin(admin.ModelAdmin):
-    list_display = ['message', 'client', 'created_at']
-    readonly_fields = ['created_at']
+# @admin.register(MessageClient)
+# class MessageClientAdmin(admin.ModelAdmin):
+#     list_display = ['message', 'client', 'created_at']
+#     readonly_fields = ['created_at']
 
 
 @admin.register(ServiceQualityAnswers)

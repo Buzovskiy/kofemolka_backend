@@ -24,7 +24,7 @@ class PushGroups(models.Model):
 MESSAGE_TYPES_CHOICES = [
     ("push_notification", _("Push notification")),
     ("push_notification_service_quality", _("Push notification service quality")),
-    ("push_notification_bonus", _("Push notification service bonus")),
+    ("push_notification_bonus", _("Push notification bonus")),
 ]
 
 
@@ -39,7 +39,6 @@ class Message(models.Model):
         'push.PushGroups', verbose_name=_('Push notifications group'), on_delete=models.CASCADE, blank=True, null=True)
     image = models.ImageField('image', upload_to='push-message/', blank=True, null=True)
 
-
     @property
     def get_absolute_image_url(self):
         try:
@@ -52,6 +51,18 @@ class Message(models.Model):
         if self.image:
             return mark_safe('<img src="{url}" height="200px" />'.format(url=self.image.url))
         return ""
+
+    def build_push_notification_service_quality_message(self, registration_token):
+        return {
+            'message': {
+                'token': registration_token,
+                'data': {
+                    'title': self.title,
+                    'body': self.body,
+                    'image': self.get_absolute_image_url
+                }
+            }
+        }
 
     def __str__(self):
         return self.title
@@ -83,7 +94,8 @@ class MessageClient(models.Model):
         return f'{self.message} - {self.client}'
 
     class Meta:
-        unique_together = [['message', 'client']]
+        verbose_name = _('The history of push messages')
+        verbose_name_plural = _('The history of push messages')
 
 
 class ServiceQualityAnswers(models.Model):

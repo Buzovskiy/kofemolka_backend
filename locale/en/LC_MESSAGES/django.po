@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-05 17:41+0100\n"
+"POT-Creation-Date: 2024-02-11 18:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,6 +65,7 @@ msgid "Is used by Firebase for sending push notifications"
 msgstr ""
 
 #: .\clients\models.py:25 .\clients\models.py:32 .\push\models.py:37
+#: .\push\models.py:105
 msgid "Client"
 msgstr ""
 
@@ -112,7 +113,7 @@ msgstr ""
 msgid "Image"
 msgstr ""
 
-#: .\location\apps.py:8 .\location\models.py:27
+#: .\location\apps.py:8 .\location\models.py:27 .\push\models.py:103
 msgid "Location"
 msgstr ""
 
@@ -178,6 +179,26 @@ msgstr ""
 
 #: .\location\templates\admin\location\location\change_list.html:9
 msgid "Get locations"
+msgstr ""
+
+#: .\order\models.py:6
+msgid "Transaction ID"
+msgstr ""
+
+#: .\order\models.py:8
+msgid "Location ID"
+msgstr ""
+
+#: .\order\models.py:10
+msgid "Client ID"
+msgstr ""
+
+#: .\order\models.py:11
+msgid "Created at"
+msgstr ""
+
+#: .\order\models.py:12
+msgid "Push is sent"
 msgstr ""
 
 #: .\payment\apps.py:8 .\payment\models.py:12
@@ -253,46 +274,50 @@ msgid "Push notification service quality"
 msgstr ""
 
 #: .\push\models.py:27
-msgid "Push notification service bonus"
+msgid "Push notification bonus"
 msgstr ""
 
 #: .\push\models.py:33
 msgid "Notification type"
 msgstr ""
 
-#: .\push\models.py:60
+#: .\push\models.py:71
 msgid "Push message"
 msgstr ""
 
-#: .\push\models.py:61
+#: .\push\models.py:72
 msgid "Push messages"
 msgstr ""
 
-#: .\push\models.py:80
+#: .\push\models.py:91 .\push\models.py:110
 msgid "Date created"
 msgstr ""
 
-#: .\push\models.py:92
+#: .\push\models.py:97 .\push\models.py:98
+msgid "The history of push messages"
+msgstr ""
+
+#: .\push\models.py:106
 msgid "Cleanliness and sanitation"
 msgstr ""
 
-#: .\push\models.py:93
+#: .\push\models.py:107
 msgid "Products quality"
 msgstr ""
 
-#: .\push\models.py:94
+#: .\push\models.py:108
 msgid "Service quality"
 msgstr ""
 
-#: .\push\models.py:95
+#: .\push\models.py:109
 msgid "Comment"
 msgstr ""
 
-#: .\push\models.py:101
+#: .\push\models.py:116
 msgid "Service quality answer"
 msgstr ""
 
-#: .\push\models.py:102
+#: .\push\models.py:117
 msgid "Service quality answers"
 msgstr ""
 

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-05 17:41+0100\n"
-"PO-Revision-Date: 2024-02-05 17:51+0200\n"
+"POT-Creation-Date: 2024-02-11 18:57+0100\n"
+"PO-Revision-Date: 2024-02-11 18:58+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -66,6 +66,7 @@ msgid "Is used by Firebase for sending push notifications"
 msgstr "Используется Firebase для отправки пуш уведомлений"
 
 #: .\clients\models.py:25 .\clients\models.py:32 .\push\models.py:37
+#: .\push\models.py:105
 msgid "Client"
 msgstr "Клиент"
 
@@ -113,7 +114,7 @@ msgstr "Способ доставки"
 msgid "Image"
 msgstr "Изображение"
 
-#: .\location\apps.py:8 .\location\models.py:27
+#: .\location\apps.py:8 .\location\models.py:27 .\push\models.py:103
 msgid "Location"
 msgstr "Заведение"
 
@@ -180,6 +181,27 @@ msgstr "Получить заведения из CRM"
 #: .\location\templates\admin\location\location\change_list.html:9
 msgid "Get locations"
 msgstr "Получить заведения"
+
+#: .\order\models.py:6
+msgid "Transaction ID"
+msgstr "Id транзакции"
+
+#: .\order\models.py:8
+msgid "Location ID"
+msgstr "Id заведения"
+
+#: .\order\models.py:10
+msgid "Client ID"
+msgstr "Id клиента"
+
+#: .\order\models.py:11
+msgid "Created at"
+msgstr "Создано"
+
+#: .\order\models.py:12
+#| msgid "Push message"
+msgid "Push is sent"
+msgstr "Сообщение отправлено"
 
 #: .\payment\apps.py:8 .\payment\models.py:12
 msgid "Payment type"
@@ -251,51 +273,53 @@ msgstr "Push уведомление"
 
 #: .\push\models.py:26
 msgid "Push notification service quality"
-msgstr "Push уведомление бонус"
+msgstr "Push уведомление оценка качества услуги"
 
 #: .\push\models.py:27
-msgid "Push notification service bonus"
-msgstr "Push уведомление оценка качества услуги"
+msgid "Push notification bonus"
+msgstr "Push уведомление бонус"
 
 #: .\push\models.py:33
 msgid "Notification type"
 msgstr "Тип push уведомления"
 
-#: .\push\models.py:60
+#: .\push\models.py:71
 msgid "Push message"
 msgstr "Push сообщение"
 
-#: .\push\models.py:61
+#: .\push\models.py:72
 msgid "Push messages"
 msgstr "Push сообщения"
 
-#: .\push\models.py:80
+#: .\push\models.py:91 .\push\models.py:110
 msgid "Date created"
 msgstr "Создано"
 
-#: .\push\models.py:92
-#| msgid "Complaints and suggestions"
+#: .\push\models.py:97 .\push\models.py:98
+msgid "The history of push messages"
+msgstr "История пуш сообщений"
+
+#: .\push\models.py:106
 msgid "Cleanliness and sanitation"
 msgstr "Чистота и санитария"
 
-#: .\push\models.py:93
-#| msgid "Products"
+#: .\push\models.py:107
 msgid "Products quality"
 msgstr "Качество продукции"
 
-#: .\push\models.py:94
+#: .\push\models.py:108
 msgid "Service quality"
 msgstr "Качество обслуживания"
 
-#: .\push\models.py:95
+#: .\push\models.py:109
 msgid "Comment"
 msgstr "Комментарий"
 
-#: .\push\models.py:101
+#: .\push\models.py:116
 msgid "Service quality answer"
 msgstr "Оценка качества услуги"
 
-#: .\push\models.py:102
+#: .\push\models.py:117
 msgid "Service quality answers"
 msgstr "Оценка качества услуг"
 
@@ -339,6 +363,9 @@ msgstr "Верифицировано"
 #: .\sms\models.py:48
 msgid "Sms codes"
 msgstr "Смс коды"
+
+#~ msgid "Push notification service bonus"
+#~ msgstr "Push уведомление оценка качества услуги"
 
 #~ msgid "Comments"
 #~ msgstr "Комментарии"
