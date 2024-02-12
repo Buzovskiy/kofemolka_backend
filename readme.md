@@ -29,3 +29,9 @@ In the list of settings /admin/app_settings/appsettings/
 create two settings.
 1. Time T1 in seconds when push quality service polling should be sent. Key t1_service_quality_polling_push
 2. Time T2 in seconds when should pass from the last push quality service polling. Key t2_service_quality_polling_push
+
+##### Current cron tasks
+1. Send push quality service polling
+*/5 * * * * /var/www/kofemolka_fa_usr/data/www/kofemolka.fastvps.site/env/bin/python /var/www/kofemolka_fa_usr/data/www/kofemolka.fastvps.site/project/manage.py send_push_quality_service >/dev/null 2>&1
+2. Exchange of products and batchtickets
+20 0 * * * wget -O /dev/null https://kofemolka.fastvps.site/v1/products/products-exchange/api_token=aa75777d179c920ec40762b1c4e99140 >/dev/null 2>&1 #Обмен товарами и техкартами
