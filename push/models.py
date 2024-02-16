@@ -86,12 +86,16 @@ class MessageClient(models.Model):
     """
     The table where push messages are stored
     """
-    message = models.ForeignKey(Message, on_delete=models.CASCADE, blank=False, null=False)
+    type = models.CharField(
+        _('Notification type'), max_length=255, choices=MESSAGE_TYPES_CHOICES, default='push_notification')
     client = models.ForeignKey('clients.Clients', on_delete=models.CASCADE, blank=False, null=False)
+    title = models.CharField('title', max_length=255, blank=True, null=True)
+    body = models.TextField('body', blank=True, null=True)
+    image = models.CharField(_('Image'), max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(verbose_name=_('Date created'), auto_now_add=True)
 
     def __str__(self):
-        return f'{self.message} - {self.client}'
+        return f'{self.client} - {self.title}'
 
     class Meta:
         verbose_name = _('The history of push messages')

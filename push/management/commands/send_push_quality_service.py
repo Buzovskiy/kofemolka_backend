@@ -28,7 +28,8 @@ class Command(BaseCommand):
         if push_template is None:
             return False
 
-        if transaction_id:  # Если указан флаг transaction_id, отправляем ему в любом случае
+        # Если указан флаг transaction_id, отправляем ему в любом случае
+        if transaction_id and transaction_id != 'all':
             transaction_id = int(transaction_id)
             order = Transaction.objects.filter(transaction_id=transaction_id).first()
             fcm_message = push_template.build_push_notification_service_quality_message(
@@ -56,7 +57,7 @@ class Command(BaseCommand):
         order_queryset = order_queryset.exclude(client__registration_token__isnull=True)
         for order in order_queryset.all():
             message_history_qs = MessageClient.objects.filter(client=order.client)
-            message_history_qs = message_history_qs.filter(message__type__exact='push_notification_service_quality')
+            message_history_qs = message_history_qs.filter(type__exact='push_notification_service_quality')
             message_history_qs = message_history_qs.filter(created_at__gt=(timezone.now() - timedelta(seconds=t2)))
             if message_history_qs.count():
                 """
@@ -76,8 +77,11 @@ class Command(BaseCommand):
                     order.save()
                     # Сохраняем сообщение в истории сообщений
                     MessageClient.objects.create(
-                        message=push_template,
-                        client=order.client
+                        type=push_template.type,
+                        client=order.client,
+                        title=push_template.title,
+                        body=push_template.body,
+                        image=push_template.get_absolute_image_url
                     )
             except AttributeError:
                 pass

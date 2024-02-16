@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ServiceQualityAnswers
+from .models import ServiceQualityAnswers, MessageClient
 
 
 class ServiceQualityAnswersSerializer(serializers.ModelSerializer):
@@ -15,3 +15,11 @@ class ServiceQualityAnswersSerializerAPI(serializers.Serializer):
     id_products_quality = serializers.IntegerField(required=False)
     id_service_quality = serializers.IntegerField(required=False)
     comment = serializers.CharField(required=False, allow_blank=True)
+
+
+class MessageClientSerializer(serializers.ModelSerializer):
+    client_id = serializers.CharField(source='client.client_id')
+
+    class Meta:
+        model = MessageClient
+        fields = ['id', 'type', 'client', 'client_id', 'title', 'body', 'image', 'created_at']

@@ -1,14 +1,16 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from rest_framework import status
+from rest_framework import status, generics
+from rest_framework.pagination import PageNumberPagination
 from .messaging import _send_fcm_message
-from .serializers import ServiceQualityAnswersSerializer, ServiceQualityAnswersSerializerAPI
+from .serializers import ServiceQualityAnswersSerializer, ServiceQualityAnswersSerializerAPI, MessageClientSerializer
 from django.conf import settings
 from clients.utils import get_client_or_create
 from location.utils import get_location_or_create
 from app_settings.poster import Poster
 from order.models import Transaction
+from .models import MessageClient
 
 
 @api_view(['GET', 'POST'])
@@ -75,3 +77,26 @@ def add_service_quality_answer(request, api_token):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ResultsSetPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+
+
+class ClientMessagesHistoryView(generics.ListAPIView):
+    serializer_class = MessageClientSerializer
+    pagination_class = ResultsSetPagination
+
+    def get_queryset(self):
+        client_id = self.request.query_params.get('client_id')
+        queryset = MessageClient.objects.filter(client__client_id=client_id).order_by('-created_at')
+        return queryset
+
+    def get(self, request, *args, **kwargs):
+        api_token = kwargs.get('api_token')
+        if api_token != settings.API_TOKEN:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+        if request.query_params.get('client_id') is None:
+            return Response('client_id is not specified', status=status.HTTP_400_BAD_REQUEST)
+        return self.list(request, *args, **kwargs)
