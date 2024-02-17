@@ -17,6 +17,7 @@ class Clients(models.Model):
         max_length=255,
         help_text=_('Is used by Firebase for sending push notifications')
     )
+    do_not_send_push_bonus = models.BooleanField(_('Do not send push bonuses'), default=False)
 
     def __str__(self):
         return f"{self.firstname} {self.lastname}"

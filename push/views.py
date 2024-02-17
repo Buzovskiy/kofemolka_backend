@@ -90,7 +90,8 @@ class ClientMessagesHistoryView(generics.ListAPIView):
 
     def get_queryset(self):
         client_id = self.request.query_params.get('client_id')
-        queryset = MessageClient.objects.filter(client__client_id=client_id).order_by('-created_at')
+        queryset = MessageClient.objects.filter(
+            client__client_id=client_id).select_related('client').order_by('-created_at')
         return queryset
 
     def get(self, request, *args, **kwargs):
@@ -100,3 +101,7 @@ class ClientMessagesHistoryView(generics.ListAPIView):
         if request.query_params.get('client_id') is None:
             return Response('client_id is not specified', status=status.HTTP_400_BAD_REQUEST)
         return self.list(request, *args, **kwargs)
+
+    def list(self, request, *args, **kwargs):
+        response = super().list(request, * args, **kwargs)
+        return response
