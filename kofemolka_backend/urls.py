@@ -21,7 +21,7 @@ from django.urls import path, re_path, include
 from sms.views import send_sms_view, check_sms_code
 from app_settings.views import get_settings, get_settings_list, get_company_info
 from product.views import get_products_list, get_product, get_batch_ticket, products_exchange
-from clients.views import CommentList, ClientDetail, Proposals, UpdateRegistrationToken
+from clients.views import CommentList, ClientDetail, Proposals, UpdateRegistrationToken, ClientDetailGenericView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,6 +42,7 @@ urlpatterns = [
     path('v1/clients/Clients.Details/api_token=<str:api_token>', ClientDetail.as_view()),
     path('v1/clients/Proposals.Add/api_token=<str:api_token>', Proposals.as_view()),
     path('v1/clients/RegistrationToken.Update/api_token=<str:api_token>', UpdateRegistrationToken.as_view()),
+    path('v1/clients/Client.Update/client_id=<int:client_id>/api_token=<str:api_token>', ClientDetailGenericView.as_view()),
     path('v1/push/', include('push.urls'))
 ]
 

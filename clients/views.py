@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, mixins, generics
 from .serializers import CommentSerializer, ClientsSerializer, ProposalSerializer, CommentSerializerDepth1
 from .models import Comment, Clients
 from django.conf import settings
@@ -71,6 +71,18 @@ class ClientDetail(APIView):
         serializer = ClientsSerializer(client)
 
         return Response(serializer.data)
+
+
+class ClientDetailGenericView(mixins.UpdateModelMixin, generics.GenericAPIView):
+    serializer_class = ClientsSerializer
+    queryset = Clients.objects.all()
+    lookup_field = 'client_id'
+
+    def put(self, request, *args, **kwargs):
+        api_token = kwargs.get('api_token')
+        if api_token != settings.API_TOKEN:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+        return self.update(request, *args, **kwargs)
 
 
 class Proposals(APIView):
