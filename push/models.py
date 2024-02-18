@@ -32,7 +32,9 @@ class Message(models.Model):
     type = models.CharField(
         _('Notification type'), max_length=255, choices=MESSAGE_TYPES_CHOICES, default='push_notification')
     title = models.CharField('title', max_length=255)
-    body = models.TextField('body')
+    body = models.TextField('body',
+                            help_text=_('To substitute the bonus amount you should use %.f for integer rounding or '
+                                        '%.1f to round to one decimal place'))
     client = models.ForeignKey(
         'clients.Clients', verbose_name=_('Client'), on_delete=models.CASCADE, blank=True, null=True)
     push_group = models.ForeignKey(
