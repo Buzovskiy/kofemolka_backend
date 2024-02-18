@@ -35,3 +35,6 @@ create two settings.
 */5 * * * * /var/www/kofemolka_fa_usr/data/www/kofemolka.fastvps.site/env/bin/python /var/www/kofemolka_fa_usr/data/www/kofemolka.fastvps.site/project/manage.py send_push_quality_service >/dev/null 2>&1
 2. Exchange of products and batchtickets
 20 0 * * * wget -O /dev/null https://kofemolka.fastvps.site/v1/products/products-exchange/api_token=aa75777d179c920ec40762b1c4e99140 >/dev/null 2>&1 #Обмен товарами и техкартами
+3. Import clients from poster 
+0 * * * * /var/www/kofemolka_fa_usr/data/www/kofemolka.fastvps.site/env/bin/python /var/www/kofemolka_fa_usr/data/www/kofemolka.fastvps.site/project/manage.py import_clients_from_poster_cron >/dev/null 2>&1 #Импорт клиентов из постера
+4. 
