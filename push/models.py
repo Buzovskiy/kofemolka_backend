@@ -54,6 +54,14 @@ class Message(models.Model):
             return mark_safe('<img src="{url}" height="200px" />'.format(url=self.image.url))
         return ""
 
+    def build_push_notification_by_message_template(self, registration_token):
+        return {
+            'message': {
+                'token': registration_token,
+                'data': {'title': self.title, 'body': self.body, 'image': self.get_absolute_image_url}
+            }
+        }
+
     def build_push_notification_service_quality_message(self, registration_token):
         return {
             'message': {
@@ -66,11 +74,7 @@ class Message(models.Model):
         return {
             'message': {
                 'token': registration_token,
-                'data': {
-                    'title': self.title,
-                    'body': self.body % bonuses_amount,
-                    'image': self.get_absolute_image_url
-                }
+                'data': {'title': self.title, 'body': self.body % bonuses_amount, 'image': self.get_absolute_image_url}
             }
         }
 

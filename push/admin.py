@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.http import HttpResponseRedirect
+from django.urls import reverse, path
 from django.utils.translation import gettext_lazy as _
 from .models import PushGroups, Message, MessageClient, ServiceQualityAnswers
 from clients.models import Clients
@@ -29,6 +31,24 @@ class MessageAdmin(admin.ModelAdmin):
     @admin.display(description=_('Image url'))
     def image_url(self, obj):
         return obj.get_absolute_image_url
+
+    def get_urls(self):
+        urls = super().get_urls()
+        my_urls = [
+            path('client-send-push/<int:message_id>', self.client_send_push, name="client-send-push"),
+            path('group-send-push/<int:message_id>', self.group_send_push, name="group-send-push"),
+        ]
+        return my_urls + urls
+
+    def client_send_push(self, request, message_id):
+        change_url = reverse("admin:push_message_change", args=(message_id,))
+        print('hello')
+        return HttpResponseRedirect(change_url)
+
+    def group_send_push(self, request, message_id):
+        change_url = reverse("admin:push_message_change", args=(message_id,))
+        print('hello')
+        return HttpResponseRedirect(change_url)
 
 
 # @admin.register(MessageClient)
