@@ -51,7 +51,7 @@ class Command(BaseCommand):
         except (AppSettings.DoesNotExist, ValueError):
             return False
 
-        order_queryset = Transaction.objects.filter(push_is_sent=False)
+        order_queryset = Transaction.objects.filter(push_quality_service_is_sent=False)
         order_queryset = order_queryset.filter(created_at__lt=(timezone.now() - timedelta(seconds=t1)))
         order_queryset = order_queryset.exclude(client__registration_token__exact='')
         order_queryset = order_queryset.exclude(client__registration_token__isnull=True)
@@ -73,7 +73,7 @@ class Command(BaseCommand):
             try:
                 if fcm_response.ok is True or fcm_response.status_code == 200:
                     # Для транзакции (заказа в заведении) отмечаем, что сообщение доставлено
-                    order.push_is_sent = True
+                    order.push_quality_service_is_sent = True
                     order.save()
                     # Сохраняем сообщение в истории сообщений
                     MessageClient.objects.create(

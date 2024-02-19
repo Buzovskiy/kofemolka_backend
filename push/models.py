@@ -66,6 +66,18 @@ class Message(models.Model):
             }
         }
 
+    def build_push_notification_bonus_for_transaction(self, registration_token, bonuses_amount):
+        return {
+            'message': {
+                'token': registration_token,
+                'data': {
+                    'title': self.title,
+                    'body': self.body % bonuses_amount,
+                    'image': self.get_absolute_image_url
+                }
+            }
+        }
+
     def __str__(self):
         return self.title
 

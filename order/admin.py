@@ -4,4 +4,4 @@ from .models import Transaction
 
 # @admin.register(Transaction)
 # class TransactionAdmin(admin.ModelAdmin):
-#     list_display = ('id', 'transaction_id', 'location', 'client', 'created_at', 'push_is_sent')
+#     list_display = ('id', 'transaction_id', 'location', 'client', 'created_at', 'push_quality_service_is_sent')

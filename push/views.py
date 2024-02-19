@@ -11,6 +11,7 @@ from location.utils import get_location_or_create
 from app_settings.poster import Poster
 from order.models import Transaction
 from .models import MessageClient
+from .sending_push import send_push_on_bonuses_for_transaction
 
 
 @api_view(['GET', 'POST'])
@@ -47,6 +48,15 @@ def poster_webhook(request):
                     transaction_id=transaction_id,
                     defaults={"transaction_id": transaction_id, "client": client, "location": location},
                 )
+
+                try:
+                    bonus = float(transaction['bonus'])
+                    payed_sum = float(transaction['payed_sum'])
+                    bonuses_amount = bonus / 100 * payed_sum / 100
+                    if round(bonuses_amount) != 0:
+                        send_push_on_bonuses_for_transaction(client_id, bonuses_amount)
+                except ValueError:
+                    pass
         except KeyError:
             pass
         return Response(status=200)

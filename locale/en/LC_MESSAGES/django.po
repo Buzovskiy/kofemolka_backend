@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-18 13:22+0100\n"
+"POT-Creation-Date: 2024-02-18 18:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -203,7 +203,7 @@ msgid "Created at"
 msgstr ""
 
 #: .\order\models.py:12
-msgid "Push is sent"
+msgid "Push quality service is sent"
 msgstr ""
 
 #: .\payment\apps.py:8 .\payment\models.py:12
