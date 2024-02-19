@@ -58,11 +58,7 @@ class Message(models.Model):
         return {
             'message': {
                 'token': registration_token,
-                'data': {
-                    'title': self.title,
-                    'body': self.body,
-                    'image': self.get_absolute_image_url
-                }
+                'data': {'title': self.title, 'body': self.body, 'image': self.get_absolute_image_url}
             }
         }
 

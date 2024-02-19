@@ -1,11 +1,15 @@
 from django.contrib import admin
-from .models import PushGroups, Message, MessageClient, ServiceQualityAnswers
 from django.utils.translation import gettext_lazy as _
+from .models import PushGroups, Message, MessageClient, ServiceQualityAnswers
+from clients.models import Clients
 
 
 @admin.register(PushGroups)
 class PushGroupsAdmin(admin.ModelAdmin):
-    pass
+    def render_change_form(self, request, context, *args, **kwargs):
+        clients_qs = Clients.objects.exclude(registration_token__exact='').exclude(registration_token__isnull=True)
+        context['adminform'].form.fields['clients'].queryset = clients_qs
+        return super(PushGroupsAdmin, self).render_change_form(request, context, *args, **kwargs)
 
 
 @admin.register(Message)
@@ -16,6 +20,11 @@ class MessageAdmin(admin.ModelAdmin):
     @admin.display(description=_('Image'))
     def image_preview(self, obj):
         return obj.image_preview
+
+    def render_change_form(self, request, context, *args, **kwargs):
+        clients_qs = Clients.objects.exclude(registration_token__exact='').exclude(registration_token__isnull=True)
+        context['adminform'].form.fields['client'].queryset = clients_qs
+        return super(MessageAdmin, self).render_change_form(request, context, *args, **kwargs)
 
     @admin.display(description=_('Image url'))
     def image_url(self, obj):
