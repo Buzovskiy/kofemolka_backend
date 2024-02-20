@@ -1,9 +1,10 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse, path
 from django.utils.translation import gettext_lazy as _
 from .models import PushGroups, Message, MessageClient, ServiceQualityAnswers
 from clients.models import Clients
+from .sending_push import send_push_by_message_template
 
 
 @admin.register(PushGroups)
@@ -42,12 +43,28 @@ class MessageAdmin(admin.ModelAdmin):
 
     def client_send_push(self, request, message_id):
         change_url = reverse("admin:push_message_change", args=(message_id,))
-        print('hello')
+        result = send_push_by_message_template(message_id=message_id, receiver='client')
+        try:
+            if 'error' in result:
+                messages.error(request, result['error'])
+            elif 'total' in result and 'success_num' in result:
+                info_message = _('%(success_num)d of %(total)d push notifications were sent successfully')
+                messages.info(request, info_message % {'success_num': result['success_num'], 'total': result['total']})
+        except TypeError:
+            pass
         return HttpResponseRedirect(change_url)
 
     def group_send_push(self, request, message_id):
         change_url = reverse("admin:push_message_change", args=(message_id,))
-        print('hello')
+        result = send_push_by_message_template(message_id=message_id, receiver='group')
+        try:
+            if 'error' in result:
+                messages.error(request, result['error'])
+            elif 'total' in result and 'success_num' in result:
+                info_message = _('%(success_num)d of %(total)d push notifications were sent successfully')
+                messages.info(request, info_message % {'success_num': result['success_num'], 'total': result['total']})
+        except TypeError:
+            pass
         return HttpResponseRedirect(change_url)
 
 

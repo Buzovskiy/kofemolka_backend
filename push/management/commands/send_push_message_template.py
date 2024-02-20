@@ -25,6 +25,5 @@ class Command(BaseCommand):
         message_id = options["message_id"]
         receiver = options["receiver"]
         result = send_push_by_message_template(message_id, receiver)
-        # result = send_push_on_bonuses_for_transaction(client_id, bonuses_amount)
-        # print(result)
+        print(result)
 

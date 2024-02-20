@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-18 18:14+0100\n"
+"POT-Creation-Date: 2024-02-20 02:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,7 @@ msgid "Do not send push bonuses"
 msgstr ""
 
 #: .\clients\models.py:26 .\clients\models.py:33 .\push\models.py:39
-#: .\push\models.py:111
+#: .\push\models.py:123
 msgid "Client"
 msgstr ""
 
@@ -113,12 +113,12 @@ msgstr ""
 msgid "Delivery type"
 msgstr ""
 
-#: .\location\admin.py:31 .\location\models.py:44 .\push\admin.py:16
-#: .\push\models.py:96
+#: .\location\admin.py:31 .\location\models.py:44 .\push\admin.py:23
+#: .\push\models.py:108
 msgid "Image"
 msgstr ""
 
-#: .\location\apps.py:8 .\location\models.py:27 .\push\models.py:109
+#: .\location\apps.py:8 .\location\models.py:27 .\push\models.py:121
 msgid "Location"
 msgstr ""
 
@@ -254,8 +254,13 @@ msgstr ""
 msgid "Get products"
 msgstr ""
 
-#: .\push\admin.py:20
+#: .\push\admin.py:32
 msgid "Image url"
+msgstr ""
+
+#: .\push\admin.py:51 .\push\admin.py:64
+#, python-format
+msgid "%(success_num)d of %(total)d push notifications were sent successfully"
 msgstr ""
 
 #: .\push\apps.py:8
@@ -282,7 +287,7 @@ msgstr ""
 msgid "Push notification bonus"
 msgstr ""
 
-#: .\push\models.py:33 .\push\models.py:92
+#: .\push\models.py:33 .\push\models.py:104
 msgid "Notification type"
 msgstr ""
 
@@ -293,44 +298,60 @@ msgid ""
 "%.1f to round to one decimal place"
 msgstr ""
 
-#: .\push\models.py:73
+#: .\push\models.py:85
 msgid "Push message"
 msgstr ""
 
-#: .\push\models.py:74
+#: .\push\models.py:86
 msgid "Push messages"
 msgstr ""
 
-#: .\push\models.py:97 .\push\models.py:116
+#: .\push\models.py:109 .\push\models.py:128
 msgid "Date created"
 msgstr ""
 
-#: .\push\models.py:103 .\push\models.py:104
+#: .\push\models.py:115 .\push\models.py:116
 msgid "The history of push messages"
 msgstr ""
 
-#: .\push\models.py:112
+#: .\push\models.py:124
 msgid "Cleanliness and sanitation"
 msgstr ""
 
-#: .\push\models.py:113
+#: .\push\models.py:125
 msgid "Products quality"
 msgstr ""
 
-#: .\push\models.py:114
+#: .\push\models.py:126
 msgid "Service quality"
 msgstr ""
 
-#: .\push\models.py:115
+#: .\push\models.py:127
 msgid "Comment"
 msgstr ""
 
-#: .\push\models.py:122
+#: .\push\models.py:134
 msgid "Service quality answer"
 msgstr ""
 
-#: .\push\models.py:123
+#: .\push\models.py:135
 msgid "Service quality answers"
+msgstr ""
+
+#: .\push\sending_push.py:23
+msgid "You should specify a client"
+msgstr ""
+
+#: .\push\sending_push.py:28
+msgid "You should specify a group in a message template"
+msgstr ""
+
+#: .\push\templates\admin\push\message\change_form.html:9
+msgid "Send push to client"
+msgstr ""
+
+#: .\push\templates\admin\push\message\change_form.html:14
+msgid "Send push to group"
 msgstr ""
 
 #: .\sms\models.py:9

@@ -24,6 +24,8 @@ def send_push_by_message_template(message_id, receiver):
         clients_stack.append(client)
     elif receiver == 'group':
         group = push_template.push_group
+        if not group:
+            return {'error': _('You should specify a group in a message template')}
         clients_stack = [client for client in group.clients.all()]
 
     responses_200_num = 0
@@ -51,6 +53,8 @@ def send_push_by_message_template(message_id, receiver):
         except AttributeError as e:
             continue
 
+    total_clients = len(clients_stack)
+    return {'total': total_clients, 'success_num': responses_200_num}
 
 
 def send_push_on_bonuses_for_transaction(client_id, bonuses_amount):
