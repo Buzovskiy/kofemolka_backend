@@ -108,6 +108,12 @@ class MessageClient(models.Model):
     image = models.CharField(_('Image'), max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(verbose_name=_('Date created'), auto_now_add=True)
 
+    @property
+    def image_preview(self):
+        if self.image:
+            return mark_safe(f'<img src="{self.image}" height="40px" />')
+        return ""
+
     def __str__(self):
         return f'{self.client} - {self.title}'
 

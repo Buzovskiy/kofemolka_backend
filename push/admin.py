@@ -7,6 +7,15 @@ from clients.models import Clients
 from .sending_push import send_push_by_message_template
 
 
+@admin.register(MessageClient)
+class MessageClientAdmin(admin.ModelAdmin):
+    list_display = ('type', 'client', 'title', 'body', 'image_preview', 'created_at')
+
+    @admin.display(description=_('Image'))
+    def image_preview(self, obj):
+        return obj.image_preview
+
+
 @admin.register(PushGroups)
 class PushGroupsAdmin(admin.ModelAdmin):
     def render_change_form(self, request, context, *args, **kwargs):
