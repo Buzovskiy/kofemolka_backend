@@ -33,7 +33,8 @@ class Command(BaseCommand):
             transaction_id = int(transaction_id)
             order = Transaction.objects.filter(transaction_id=transaction_id).first()
             fcm_message = push_template.build_push_notification_service_quality_message(
-                registration_token=order.client.registration_token
+                registration_token=order.client.registration_token,
+                order=order
             )
             fcm_response = _send_fcm_message(fcm_message)
             print(fcm_response.ok)
@@ -67,7 +68,8 @@ class Command(BaseCommand):
                 """
                 continue
             fcm_message = push_template.build_push_notification_service_quality_message(
-                registration_token=order.client.registration_token
+                registration_token=order.client.registration_token,
+                order=order
             )
             fcm_response = _send_fcm_message(fcm_message)
             try:

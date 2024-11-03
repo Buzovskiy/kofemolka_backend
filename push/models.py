@@ -62,11 +62,15 @@ class Message(models.Model):
             }
         }
 
-    def build_push_notification_service_quality_message(self, registration_token):
+    def build_push_notification_service_quality_message(self, registration_token, order=None):
+        data = {'title': self.title, 'body': self.body, 'image': self.get_absolute_image_url}
+        if order:
+            data['spot_id'] = order.location.spot_id
+
         return {
             'message': {
                 'token': registration_token,
-                'data': {'title': self.title, 'body': self.body, 'image': self.get_absolute_image_url}
+                'data': data
             }
         }
 

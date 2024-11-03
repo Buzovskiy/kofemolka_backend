@@ -29,15 +29,15 @@ class Location(models.Model):
 
 
 class LocationAddress(models.Model):
-    address = models.CharField(_('Address'), null=False, blank=False, max_length=255)
+    address = models.CharField(_('Shipping address'), null=False, blank=False, max_length=255)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.address
 
     class Meta:
-        verbose_name = _('Address')
-        verbose_name_plural = _('Addresses')
+        verbose_name = _('Shipping address')
+        verbose_name_plural = _('Shipping addresses')
 
 
 class LocationImage(models.Model):
