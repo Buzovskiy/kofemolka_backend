@@ -11,7 +11,7 @@ from kofemolka_backend.utils import post_delete_image, pre_save_image
 
 class Location(models.Model):
     spot_id = models.CharField(_('Location id'), null=False, blank=False, max_length=255, unique=True)
-    name = models.CharField(_('Name'), null=False, blank=True, max_length=255)
+    name = models.CharField(_('Name in application'), null=False, blank=True, max_length=255)
     spot_name = models.CharField(_('Location name'), null=False, blank=True, max_length=255)
     spot_address = models.CharField(_('Location address'), null=False, blank=True, max_length=255)
     region_id = models.CharField(_('Region id'), null=False, blank=True, max_length=255)
