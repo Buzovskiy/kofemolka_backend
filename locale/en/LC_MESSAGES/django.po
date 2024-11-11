@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-11 10:20+0100\n"
+"POT-Creation-Date: 2024-11-03 21:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,8 +130,8 @@ msgstr ""
 msgid "Location id"
 msgstr ""
 
-#: .\location\models.py:14
-msgid "Name in application"
+#: .\location\models.py:14 .\product\models.py:6 .\product\models.py:19
+msgid "Name"
 msgstr ""
 
 #: .\location\models.py:15
@@ -163,11 +163,11 @@ msgid "Wayforpay account"
 msgstr ""
 
 #: .\location\models.py:32 .\location\models.py:39
-msgid "Address"
+msgid "Shipping address"
 msgstr ""
 
 #: .\location\models.py:40
-msgid "Addresses"
+msgid "Shipping addresses"
 msgstr ""
 
 #: .\location\models.py:62
@@ -216,10 +216,6 @@ msgstr ""
 
 #: .\product\apps.py:8
 msgid "Products and batch tickets"
-msgstr ""
-
-#: .\product\models.py:6 .\product\models.py:19
-msgid "Name"
 msgstr ""
 
 #: .\product\models.py:7 .\product\models.py:20
