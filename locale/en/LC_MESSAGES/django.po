@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-03 21:03+0100\n"
+"POT-Creation-Date: 2024-11-11 10:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,7 @@ msgid "Do not send push bonuses"
 msgstr ""
 
 #: .\clients\models.py:26 .\clients\models.py:33 .\push\models.py:39
-#: .\push\models.py:129
+#: .\push\models.py:133
 msgid "Client"
 msgstr ""
 
@@ -113,12 +113,12 @@ msgstr ""
 msgid "Delivery type"
 msgstr ""
 
-#: .\location\admin.py:31 .\location\models.py:44 .\push\admin.py:14
-#: .\push\admin.py:32 .\push\models.py:108
+#: .\location\admin.py:31 .\location\models.py:44 .\push\admin.py:16
+#: .\push\admin.py:34 .\push\models.py:112
 msgid "Image"
 msgstr ""
 
-#: .\location\apps.py:8 .\location\models.py:27 .\push\models.py:127
+#: .\location\apps.py:8 .\location\models.py:27 .\push\models.py:131
 msgid "Location"
 msgstr ""
 
@@ -130,8 +130,8 @@ msgstr ""
 msgid "Location id"
 msgstr ""
 
-#: .\location\models.py:14 .\product\models.py:6 .\product\models.py:19
-msgid "Name"
+#: .\location\models.py:14
+msgid "Name in application"
 msgstr ""
 
 #: .\location\models.py:15
@@ -218,6 +218,10 @@ msgstr ""
 msgid "Products and batch tickets"
 msgstr ""
 
+#: .\product\models.py:6 .\product\models.py:19
+msgid "Name"
+msgstr ""
+
 #: .\product\models.py:7 .\product\models.py:20
 msgid "External id"
 msgstr ""
@@ -254,11 +258,11 @@ msgstr ""
 msgid "Get products"
 msgstr ""
 
-#: .\push\admin.py:41
+#: .\push\admin.py:43
 msgid "Image url"
 msgstr ""
 
-#: .\push\admin.py:60 .\push\admin.py:73
+#: .\push\admin.py:62 .\push\admin.py:75
 #, python-format
 msgid "%(success_num)d of %(total)d push notifications were sent successfully"
 msgstr ""
@@ -287,7 +291,7 @@ msgstr ""
 msgid "Push notification bonus"
 msgstr ""
 
-#: .\push\models.py:33 .\push\models.py:104
+#: .\push\models.py:33 .\push\models.py:108
 msgid "Notification type"
 msgstr ""
 
@@ -298,43 +302,43 @@ msgid ""
 "%.1f to round to one decimal place"
 msgstr ""
 
-#: .\push\models.py:85
+#: .\push\models.py:89
 msgid "Push message"
 msgstr ""
 
-#: .\push\models.py:86
+#: .\push\models.py:90
 msgid "Push messages"
 msgstr ""
 
-#: .\push\models.py:109 .\push\models.py:134
+#: .\push\models.py:113 .\push\models.py:138
 msgid "Date created"
 msgstr ""
 
-#: .\push\models.py:121 .\push\models.py:122
+#: .\push\models.py:125 .\push\models.py:126
 msgid "The history of push messages"
 msgstr ""
 
-#: .\push\models.py:130
+#: .\push\models.py:134
 msgid "Cleanliness and sanitation"
 msgstr ""
 
-#: .\push\models.py:131
+#: .\push\models.py:135
 msgid "Products quality"
 msgstr ""
 
-#: .\push\models.py:132
+#: .\push\models.py:136
 msgid "Service quality"
 msgstr ""
 
-#: .\push\models.py:133
+#: .\push\models.py:137
 msgid "Comment"
 msgstr ""
 
-#: .\push\models.py:140
+#: .\push\models.py:144
 msgid "Service quality answer"
 msgstr ""
 
-#: .\push\models.py:141
+#: .\push\models.py:145
 msgid "Service quality answers"
 msgstr ""
 
