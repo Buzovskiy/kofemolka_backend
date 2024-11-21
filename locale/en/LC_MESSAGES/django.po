@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-11 10:29+0100\n"
+"POT-Creation-Date: 2024-11-20 16:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -135,7 +135,7 @@ msgid "Name in application"
 msgstr ""
 
 #: .\location\models.py:15
-msgid "Location name"
+msgid "Location name (Poster)"
 msgstr ""
 
 #: .\location\models.py:16
@@ -397,4 +397,8 @@ msgstr ""
 
 #: .\sms\models.py:48
 msgid "Sms codes"
+msgstr ""
+
+#: .\sms\views.py:25
+msgid "Your code is"
 msgstr ""

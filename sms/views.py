@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import SmsCodesSerializer
 from django.conf import settings
+from django.utils.translation import gettext_lazy as _
 from .turbosms import send_sms
 from .models import SmsCodes
 
@@ -15,10 +16,17 @@ def send_sms_view(request, api_token):
     if api_token != settings.API_TOKEN:
         return Response(status=status.HTTP_401_UNAUTHORIZED)
 
+    post_data = request.data.dict()
     sms_code = str(random.randint(1000, 9999))  # make 4 digits sms code
-    serializer = SmsCodesSerializer(data={**request.data.dict(), 'sms_code': sms_code})
+    serializer = SmsCodesSerializer(data={**post_data, 'sms_code': sms_code})
+
     if serializer.is_valid():
-        turbosms_response = send_sms(message=sms_code, recipients=[serializer.validated_data['phone_number']])
+        if 'app_hash' in post_data:
+            message = "{}: {}\n {}".format(_('Your code is'), sms_code, post_data['app_hash'])
+        else:
+            message = sms_code
+
+        turbosms_response = send_sms(message=message, recipients=[serializer.validated_data['phone_number']])
         if turbosms_response.status_code != 200:
             Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         serializer.save()
