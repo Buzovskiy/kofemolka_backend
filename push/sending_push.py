@@ -32,9 +32,15 @@ def send_push_by_message_template(message_id, receiver):
     for client in clients_stack:
         if not client.registration_token:
             continue
-        fcm_message = push_template.build_push_notification_by_message_template(
-            registration_token=client.registration_token
-        )
+
+        if push_template.type == 'push_notification_service_quality':
+            fcm_message = push_template.build_push_notification_service_quality_message(
+                registration_token=client.registration_token, order=push_template.order
+            )
+        else:
+            fcm_message = push_template.build_push_notification_by_message_template(
+                registration_token=client.registration_token
+            )
 
         fcm_response = _send_fcm_message(fcm_message)
 

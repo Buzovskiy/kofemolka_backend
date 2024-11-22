@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-20 16:26+0100\n"
-"PO-Revision-Date: 2024-11-20 16:26+0200\n"
+"POT-Creation-Date: 2024-11-22 11:05+0100\n"
+"PO-Revision-Date: 2024-11-22 11:05+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -70,7 +70,7 @@ msgid "Do not send push bonuses"
 msgstr "Не отравлять пуши типа о начисленных бонусах"
 
 #: .\clients\models.py:26 .\clients\models.py:33 .\push\models.py:39
-#: .\push\models.py:133
+#: .\push\models.py:146
 msgid "Client"
 msgstr "Клиент"
 
@@ -115,11 +115,11 @@ msgid "Delivery type"
 msgstr "Способ доставки"
 
 #: .\location\admin.py:31 .\location\models.py:44 .\push\admin.py:16
-#: .\push\admin.py:34 .\push\models.py:112
+#: .\push\admin.py:34 .\push\models.py:125
 msgid "Image"
 msgstr "Изображение"
 
-#: .\location\apps.py:8 .\location\models.py:27 .\push\models.py:131
+#: .\location\apps.py:8 .\location\models.py:27 .\push\models.py:144
 msgid "Location"
 msgstr "Заведение"
 
@@ -293,7 +293,7 @@ msgstr "Push уведомление оценка качества услуги"
 msgid "Push notification bonus"
 msgstr "Push уведомление бонус"
 
-#: .\push\models.py:33 .\push\models.py:108
+#: .\push\models.py:33 .\push\models.py:121
 msgid "Notification type"
 msgstr "Тип push уведомления"
 
@@ -306,43 +306,48 @@ msgstr ""
 "Чтобы заменить сумму бонуса, вы должны использовать %.f для округления "
 "целого числа или %.1f для округления до одного десятичного знака."
 
-#: .\push\models.py:89
+#: .\push\models.py:44
+#| msgid "Client id"
+msgid "Client order"
+msgstr "Заказ клиента"
+
+#: .\push\models.py:102
 msgid "Push message"
 msgstr "Push сообщение"
 
-#: .\push\models.py:90
+#: .\push\models.py:103
 msgid "Push messages"
 msgstr "Push сообщения"
 
-#: .\push\models.py:113 .\push\models.py:138
+#: .\push\models.py:126 .\push\models.py:151
 msgid "Date created"
 msgstr "Создано"
 
-#: .\push\models.py:125 .\push\models.py:126
+#: .\push\models.py:138 .\push\models.py:139
 msgid "The history of push messages"
 msgstr "История пуш сообщений"
 
-#: .\push\models.py:134
+#: .\push\models.py:147
 msgid "Cleanliness and sanitation"
 msgstr "Чистота и санитария"
 
-#: .\push\models.py:135
+#: .\push\models.py:148
 msgid "Products quality"
 msgstr "Качество продукции"
 
-#: .\push\models.py:136
+#: .\push\models.py:149
 msgid "Service quality"
 msgstr "Качество обслуживания"
 
-#: .\push\models.py:137
+#: .\push\models.py:150
 msgid "Comment"
 msgstr "Комментарий"
 
-#: .\push\models.py:144
+#: .\push\models.py:157
 msgid "Service quality answer"
 msgstr "Оценка качества услуги"
 
-#: .\push\models.py:145
+#: .\push\models.py:158
 msgid "Service quality answers"
 msgstr "Оценка качества услуг"
 

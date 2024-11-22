@@ -40,6 +40,9 @@ class Message(models.Model):
     push_group = models.ForeignKey(
         'push.PushGroups', verbose_name=_('Push notifications group'), on_delete=models.CASCADE, blank=True, null=True)
     image = models.ImageField('image', upload_to='push-message/', blank=True, null=True)
+    order = models.ForeignKey(
+        'order.Transaction', verbose_name=_('Client order'), on_delete=models.CASCADE, blank=True, null=True
+    )
 
     @property
     def get_absolute_image_url(self):
