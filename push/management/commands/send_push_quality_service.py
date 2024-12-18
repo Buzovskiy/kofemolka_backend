@@ -83,7 +83,8 @@ class Command(BaseCommand):
                         client=order.client,
                         title=push_template.title,
                         body=push_template.body,
-                        image=push_template.get_absolute_image_url
+                        image=push_template.get_absolute_image_url,
+                        spot_id=order.location.spot_id
                     )
             except AttributeError:
                 pass

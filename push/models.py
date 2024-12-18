@@ -123,6 +123,7 @@ class MessageClient(models.Model):
     title = models.CharField('title', max_length=255, blank=True, null=True)
     body = models.TextField('body', blank=True, null=True)
     image = models.CharField(_('Image'), max_length=255, blank=True, null=True)
+    spot_id = models.CharField("spot_id", null=True, blank=True, max_length=255)
     created_at = models.DateTimeField(verbose_name=_('Date created'), auto_now_add=True)
 
     @property

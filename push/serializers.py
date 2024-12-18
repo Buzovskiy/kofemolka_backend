@@ -22,4 +22,4 @@ class MessageClientSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MessageClient
-        fields = ['id', 'type', 'client', 'client_id', 'title', 'body', 'image', 'created_at']
+        fields = ['id', 'type', 'client', 'client_id', 'spot_id', 'title', 'body', 'image', 'created_at']

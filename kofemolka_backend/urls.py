@@ -43,7 +43,8 @@ urlpatterns = [
     path('v1/clients/Proposals.Add/api_token=<str:api_token>', Proposals.as_view()),
     path('v1/clients/RegistrationToken.Update/api_token=<str:api_token>', UpdateRegistrationToken.as_view()),
     path('v1/clients/Client.Update/client_id=<int:client_id>/api_token=<str:api_token>', ClientDetailGenericView.as_view()),
-    path('v1/push/', include('push.urls'))
+    path('v1/push/', include('push.urls')),
+    path('v1/locations/', include('location.urls')),
 ]
 
 if 'rosetta' in settings.INSTALLED_APPS:

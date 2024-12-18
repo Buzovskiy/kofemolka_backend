@@ -47,13 +47,19 @@ def send_push_by_message_template(message_id, receiver):
         try:
             if fcm_response.ok is True or fcm_response.status_code == 200:
                 responses_200_num += 1
+                spot_id = None
+
+                if 'spot_id' in fcm_message['message']['data'] and fcm_message['message']['data']['spot_id']:
+                    spot_id = fcm_message['message']['data']['spot_id']
+
                 # Сохраняем сообщение в истории сообщений
                 MessageClient.objects.create(
                     type=push_template.type,
                     client=client,
                     title=fcm_message['message']['data']['title'],
                     body=fcm_message['message']['data']['body'],
-                    image=fcm_message['message']['data']['image']
+                    image=fcm_message['message']['data']['image'],
+                    spot_id=spot_id,
                 )
             # print(fcm_response.json())
         except AttributeError as e:
