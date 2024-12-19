@@ -33,9 +33,20 @@ def send_push_by_message_template(message_id, receiver):
         if not client.registration_token:
             continue
 
+        # Сохраняем сообщение в истории сообщений
+        message_client = MessageClient.objects.create(
+            type=push_template.type,
+            client=client,
+            title=push_template.title,
+            body=push_template.body,
+            image=push_template.get_absolute_image_url,
+        )
+
         if push_template.type == 'push_notification_service_quality':
             fcm_message = push_template.build_push_notification_service_quality_message(
-                registration_token=client.registration_token, order=push_template.order
+                registration_token=client.registration_token,
+                order=push_template.order,
+                message_client_id=message_client.id
             )
         else:
             fcm_message = push_template.build_push_notification_by_message_template(
@@ -52,18 +63,15 @@ def send_push_by_message_template(message_id, receiver):
                 if 'spot_id' in fcm_message['message']['data'] and fcm_message['message']['data']['spot_id']:
                     spot_id = fcm_message['message']['data']['spot_id']
 
-                # Сохраняем сообщение в истории сообщений
-                MessageClient.objects.create(
-                    type=push_template.type,
-                    client=client,
-                    title=fcm_message['message']['data']['title'],
-                    body=fcm_message['message']['data']['body'],
-                    image=fcm_message['message']['data']['image'],
-                    spot_id=spot_id,
-                )
-            # print(fcm_response.json())
+                message_client.spot_id = spot_id
+                message_client.save()
+            else:
+                # If the response fails, delete the created MessageClient object
+                message_client.delete()
+
         except AttributeError as e:
-            continue
+            # In case of an unexpected attribute error, also delete the MessageClient object
+            message_client.delete()
 
     total_clients = len(clients_stack)
     return {'total': total_clients, 'success_num': responses_200_num}

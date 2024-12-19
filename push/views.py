@@ -75,15 +75,29 @@ def add_service_quality_answer(request, api_token):
         location = get_location_or_create(spot_id=request.data['spot_id'])
         if client is None or location is None:
             return Response('Client or location are not found', status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            # Attempt to retrieve the object
+            message_client = MessageClient.objects.get(id=request.data['message_client_id'])
+        except MessageClient.DoesNotExist:
+            # Raise a 404 error if the object doesn't exist
+            return Response(
+                f'Message with id {request.data["message_client_id"]} does not exist',
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
         model_data = {
             'client': client.id,
-            'location': location.id
+            'location': location.id,
+            'message_client': message_client.id,
         }
         new_request_data = request.data.copy()
         new_request_data.update(model_data)
         serializer = ServiceQualityAnswersSerializer(data=new_request_data)
         if serializer.is_valid():
             serializer.save()
+            message_client.quality_is_rated = True
+            message_client.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

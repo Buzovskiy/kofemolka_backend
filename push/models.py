@@ -70,7 +70,13 @@ class Message(models.Model):
             }
         }
 
-    def build_push_notification_service_quality_message(self, registration_token, order=None):
+    def build_push_notification_service_quality_message(self, registration_token, order=None, message_client_id=None):
+        """
+        :param registration_token:
+        :param order:
+        :param message_client_id: id of object in model class MessageClient
+        :return:
+        """
         data = {
             'title': self.title,
             'body': self.body,
@@ -79,6 +85,9 @@ class Message(models.Model):
         }
         if order:
             data['spot_id'] = order.location.spot_id
+
+        if message_client_id:
+            data['message_client_id'] = str(message_client_id)
 
         return {
             'message': {
@@ -124,6 +133,7 @@ class MessageClient(models.Model):
     body = models.TextField('body', blank=True, null=True)
     image = models.CharField(_('Image'), max_length=255, blank=True, null=True)
     spot_id = models.CharField("spot_id", null=True, blank=True, max_length=255)
+    quality_is_rated = models.BooleanField(_('Quality is rated'), default=False)
     created_at = models.DateTimeField(verbose_name=_('Date created'), auto_now_add=True)
 
     @property
@@ -149,6 +159,7 @@ class ServiceQualityAnswers(models.Model):
     id_products_quality = models.IntegerField(verbose_name=_('Products quality'), blank=True, null=True)
     id_service_quality = models.IntegerField(verbose_name=_('Service quality'), blank=True, null=True)
     comment = models.TextField(verbose_name=_('Comment'), blank=True, null=True)
+    message_client = models.ForeignKey(MessageClient, on_delete=models.SET_NULL, blank=True, null=True)
     created_at = models.DateTimeField(verbose_name=_('Date created'), null=True, auto_now_add=True)
 
     def __str__(self):

@@ -18,6 +18,7 @@ class Command(BaseCommand):
     python manage.py send_push_quality_service --transaction_id 1:
     Укажите id транзакции, чтобы отправить клиенту пуш в любом случае не зависимо от t1 и t2
     """
+
     #
     def add_arguments(self, parser):
         parser.add_argument("--transaction_id", required=False)
@@ -67,24 +68,32 @@ class Command(BaseCommand):
                 клиенту новый push типа push_notification_service_quality.
                 """
                 continue
+
+            # Сохраняем сообщение в истории сообщений
+            message_client = MessageClient.objects.create(
+                type=push_template.type,
+                client=order.client,
+                title=push_template.title,
+                body=push_template.body,
+                image=push_template.get_absolute_image_url,
+                spot_id=order.location.spot_id
+            )
+
             fcm_message = push_template.build_push_notification_service_quality_message(
                 registration_token=order.client.registration_token,
-                order=order
+                order=order,
+                message_client_id=message_client.id
             )
+
             fcm_response = _send_fcm_message(fcm_message)
             try:
                 if fcm_response.ok is True or fcm_response.status_code == 200:
                     # Для транзакции (заказа в заведении) отмечаем, что сообщение доставлено
                     order.push_quality_service_is_sent = True
                     order.save()
-                    # Сохраняем сообщение в истории сообщений
-                    MessageClient.objects.create(
-                        type=push_template.type,
-                        client=order.client,
-                        title=push_template.title,
-                        body=push_template.body,
-                        image=push_template.get_absolute_image_url,
-                        spot_id=order.location.spot_id
-                    )
+                else:
+                    # If the response fails, delete the created MessageClient object
+                    message_client.delete()
             except AttributeError:
-                pass
+                # In case of an unexpected attribute error, also delete the MessageClient object
+                message_client.delete()
